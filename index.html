@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortuna Digital - The Coin of Fate</title>
+    <meta name="description" content="Experience the power of digital fortune with elegant coin toss decisions. Audentes fortuna iuvat - Fortune favors the bold.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIGZpbGw9IiMwMEFBRkYiLz4KPHRleHQgeD0iMTYiIHk9IjIwIiBmb250LWZhbWlseT0iR2VvcmdpYSIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKMrzwvdGV4dD4KPC9zdmc+Cg==" type="image/svg+xml">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        @keyframes digitalFlow {
+            0% { transform: translateX(0px) translateY(0px); }
+            25% { transform: translateX(-50px) translateY(-25px); }
+            50% { transform: translateX(0px) translateY(-50px); }
+            75% { transform: translateX(50px) translateY(-25px); }
+            100% { transform: translateX(0px) translateY(0px); }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .digital-flow {
+            animation: digitalFlow 25s linear infinite;
+        }
+        
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .coin-container {
+            box-shadow: 0 0 80px rgba(0, 170, 255, 0.4), inset 0 0 80px rgba(0, 170, 255, 0.1);
+        }
+        
+        .bg-gradient-text {
+            background: linear-gradient(90deg, #00aaff, #ffffff, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading" class="min-h-screen bg-black text-blue-400 font-mono relative overflow-hidden">
+            <div class="absolute inset-0">
+                <div id="matrix-rain"></div>
+            </div>
+            <div class="relative z-10 flex items-center justify-center min-h-screen">
+                <div class="text-center px-4">
+                    <div class="text-3xl mb-4 animate-pulse font-light tracking-wider">
+                        Fortuna Digital
+                    </div>
+                    <div class="text-lg text-blue-300 italic">
+                        "Alea iacta est"
+                    </div>
+                    <div class="mt-8">
+                        <button onclick="startApp()" class="px-8 py-3 border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300 font-light tracking-wider">
+                            ENTER
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="main-app" class="min-h-screen bg-black text-white relative overflow-hidden" style="display: none;">
+            <!-- Background -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-black to-blue-900/30"></div>
+                <div class="absolute inset-0 opacity-60 digital-flow" style="
+                    background-image: 
+                        radial-gradient(circle at 30% 70%, rgba(0,170,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(0,100,200,0.1) 0%, transparent 50%),
+                        repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(0,170,255,0.03) 102px),
+                        repeating-linear-gradient(-45deg, transparent, transparent 100px, rgba(0,170,255,0.03) 102px);
+                    background-size: 400px 400px, 300px 300px, 200px 200px, 200px 200px;
+                "></div>
+                
+                <!-- Floating binary elements -->
+                <div class="absolute inset-0" id="floating-elements"></div>
+            </div>
+
+            <!-- Header -->
+            <div class="relative text-center py-16 px-4 border-b border-blue-800/50">
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <div class="w-12 h-12 text-blue-400 flex items-center justify-center text-2xl">∞</div>
+                    <div class="text-center">
+                        <h1 class="text-6xl font-light tracking-widest bg-gradient-text mb-2" style="font-family: Georgia, serif; text-shadow: 0 0 30px rgba(0,170,255,0.5);">
+                            FORTUNA
+                        </h1>
+                        <div class="text-lg text-blue-300 italic font-light tracking-wider" style="font-family: Georgia, serif;">
+                            "Audentes fortuna iuvat"
+                        </div>
+                        <div class="text-sm text-gray-400 mt-2">
+                            Fortune favors the bold
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 text-blue-400 flex items-center justify-center text-2xl" style="transform: rotate(180deg);">∞</div>
+                </div>
+                
+                <div id="premium-badge" class="inline-flex items-center gap-2 px-4 py-2 border border-blue-400/50 rounded bg-blue-900/20" style="display: none;">
+                    <span>👑</span>
+                    <span class="text-sm tracking-wide text-blue-400 font-light">PREMIUM</span>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <div id="quote-section" class="relative py-12 px-6 border-b border-blue-800/30">
+                <div class="max-w-2xl mx-auto text-center">
+                    <p id="current-quote" class="text-xl text-blue-200 italic leading-relaxed font-light" style="font-family: Georgia, serif;">
+                        "Fortuna caeca est"
+                    </p>
+                    <p id="quote-translation" class="text-sm text-gray-400 mt-3 tracking-wider font-light">
+                        Fortune is blind
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main Coin Section -->
+            <div class="relative max-w-lg mx-auto px-6 py-16">
+                <!-- Coin -->
+                <div class="flex justify-center mb-16">
+                    <div class="relative">
+                        <div id="coin" class="w-56 h-56 rounded-full border-4 border-blue-400 bg-gradient-to-br from-blue-900/20 to-transparent shadow-2xl flex items-center justify-center transform transition-all duration-2500 hover:scale-105 coin-container">
+                            <div id="coin-content" class="text-center">
+                                <div class="text-6xl text-blue-400 mb-4">🪙</div>
+                                <div class="text-lg text-gray-300 tracking-wider font-light">READY</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Glow rings -->
+                        <div class="absolute inset-0 rounded-full border border-blue-400/30 scale-110 animate-pulse"></div>
+                        <div class="absolute inset-0 rounded-full border border-blue-400/20 scale-125 animate-pulse" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+
+                <!-- Flip Button -->
+                <div class="text-center mb-12">
+                    <button id="flip-btn" onclick="flipCoin()" class="px-16 py-5 border-2 border-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300 font-light tracking-widest text-xl transform hover:scale-105" style="font-family: Georgia, serif;">
+                        FLIP COIN
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 mb-12">
+                    <div class="text-center p-6 border border-blue-800/30 bg-blue-900/10 rounded">
+                        <div id="total-count" class="text-4xl font-light text-blue-400 mb-2" style="font-family: Georgia, serif;">0</div>
+                        <div class="text-xs text-gray-400 tracking-wider font-light">TOTAL</div>
+                    </div>
+                    <div class="text-center p-6 border border-blue-800/30 bg-blue-900/10 rounded">
+                        <div id="heads-count" class="text-4xl font-light text-blue-400 mb-2" style="font-family: Georgia, serif;">0</div>
+                        <div class="text-xs text-gray-400 tracking-wider font-light">HEADS</div>
+                    </div>
+                    <div class="text-center p-6 border border-blue-800/30 bg-blue-900/10 rounded">
+                        <div id="tails-count" class="text-4xl font-light text-blue-400 mb-2" style="font-family: Georgia, serif;">0</div>
+                        <div class="text-xs text-gray-400 tracking-wider font-light">TAILS</div>
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div id="history-section" class="mb-12" style="display: none;">
+                    <h3 class="text-center text-lg font-light mb-6 tracking-wider text-blue-400" style="font-family: Georgia, serif;">
+                        Recent History
+                    </h3>
+                    <div class="flex justify-center">
+                        <div id="history-display" class="flex gap-3"></div>
+                    </div>
+                </div>
+
+                <!-- Free Limit Warning -->
+                <div id="limit-warning" class="mb-8 p-4 border border-orange-500/50 bg-orange-900/20 text-center rounded" style="display: none;">
+                    <p class="text-orange-300 text-sm font-light">
+                        <span id="remaining-flips">2</span> flips remaining
+                    </p>
+                </div>
+
+                <!-- Reset Button -->
+                <div class="text-center">
+                    <button onclick="resetApp()" class="px-10 py-3 border border-gray-600 hover:border-blue-400 text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wider" style="font-family: Georgia, serif;">
+                        RESET
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subscription Modal -->
+            <div id="subscription-modal" class="fixed inset-0 bg-black/90 flex items-center justify-center p-4" style="display: none;">
+                <div class="bg-black border-2 border-blue-400 p-8 max-w-md w-full text-center relative rounded">
+                    <div class="absolute inset-0 bg-blue-400/5 rounded"></div>
+                    <div class="relative z-10">
+                        <div class="mb-6">
+                            <div class="text-6xl mx-auto text-blue-400 mb-6">🔒</div>
+                            <h2 class="text-2xl font-light mb-4 tracking-wider text-blue-400" style="font-family: Georgia, serif;">
+                                Unlock Unlimited Fortune
+                            </h2>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                Continue your journey with infinite coin flips
+                            </p>
+                        </div>
+                        
+                        <div class="border border-blue-800/50 p-6 mb-8 bg-blue-900/10 rounded">
+                            <div class="text-3xl font-light text-blue-400 mb-4" style="font-family: Georgia, serif;">$2.99/month</div>
+                            <div class="space-y-3 text-sm text-gray-300 font-light">
+                                <div class="flex items-center justify-center gap-3">
+                                    <span>∞</span>
+                                    <span>Unlimited coin flips</span>
+                                </div>
+                                <div class="flex items-center justify-center gap-3">
+                                    <span>👑</span>
+                                    <span>Premium status</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <button onclick="buyPremium()" class="w-full py-3 bg-blue-400 text-black hover:bg-blue-300 transition-all duration-300 font-light tracking-wider" style="font-family: Georgia, serif;">
+                                UPGRADE NOW
+                            </button>
+                            <button onclick="closeModal()" class="w-full py-3 border border-gray-600 hover:border-blue-400 text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wider" style="font-family: Georgia, serif;">
+                                MAYBE LATER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="relative border-t border-blue-800/30 py-8 text-center">
+                <div class="space-y-2 text-xs text-gray-500 font-light">
+                    <p>Powered by Markov Chain Probability</p>
+                    <p style="font-family: Georgia, serif;">"Fatum nos ducit" - Fate leads us</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let tosses = 0;
+        let history = [];
+        let isPremium = false;
+        let markovState = 'H';
+        let isFlipping = false;
+
+        const markovMatrix = {
+            'H': { 'H': 0.45, 'T': 0.55 },
+            'T': { 'H': 0.55, 'T': 0.45 }
+        };
+
+        const latinQuotes = [
+            "Fortuna caeca est - Fortune is blind",
+            "Alea iacta est - The die is cast",
+            "Audentes fortuna iuvat - Fortune favors the bold",
+            "Fata viam invenient - Fate will find a way",
+            "Carpe diem - Seize the day",
+            "Memento mori - Remember death",
+            "Veni, vidi, vici - I came, I saw, I conquered",
+            "Per aspera ad astra - Through hardships to the stars"
+        ];
+
+        // Matrix rain effect
+        function createMatrixRain() {
+            const container = document.getElementById('matrix-rain');
+            const characters = '01234567890';
+            const columns = Math.floor(window.innerWidth / 25);
+            
+            for (let i = 0; i < columns; i++) {
+                const drop = document.createElement('div');
+                drop.style.position = 'absolute';
+                drop.style.left = i * 25 + 'px';
+                drop.style.top = Math.random() * -1000 + 'px';
+                drop.style.color = '#00aaff';
+                drop.style.fontFamily = 'monospace';
+                drop.style.fontSize = '14px';
+                drop.style.textShadow = '0 0 8px #00aaff';
+                drop.style.animation = `fall ${3 + Math.random() * 5}s linear infinite`;
+                
+                let text = '';
+                for (let j = 0; j < 15; j++) {
+                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                }
+                drop.innerHTML = text;
+                container.appendChild(drop);
+            }
+        }
+
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floating-elements');
+            const elements = ['01', '10', '001', '110', '101', '010'];
+            
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.className = 'absolute text-blue-400 opacity-20 font-mono text-sm animate-pulse';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 5 + 's';
+                element.style.animationDuration = (3 + Math.random() * 4) + 's';
+                element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                container.appendChild(element);
+            }
+        }
+
+        // Start app
+        function startApp() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('main-app').style.display = 'block';
+            createFloatingElements();
+            updateQuote();
+        }
+
+        // Update quote
+        function updateQuote() {
+            const quote = latinQuotes[Math.floor(Math.random() * latinQuotes.length)];
+            const parts = quote.split(' - ');
+            document.getElementById('current-quote').textContent = `"${parts[0]}"`;
+            document.getElementById('quote-translation').textContent = parts[1];
+        }
+
+        // Markov prediction
+        function getMarkovPrediction() {
+            const probabilities = markovMatrix[markovState];
+            const random = Math.random();
+            return random < probabilities['H'] ? 'H' : 'T';
+        }
+
+        // Flip coin
+        function flipCoin() {
+            if (!isPremium && tosses >= 10) {
+                document.getElementById('subscription-modal').style.display = 'flex';
+                return;
+            }
+
+            if (isFlipping) return;
+            
+            isFlipping = true;
+            const coin = document.getElementById('coin');
+            const coinContent = document.getElementById('coin-content');
+            const flipBtn = document.getElementById('flip-btn');
+            
+            coin.classList.add('animate-spin');
+            coin.style.transform = 'scale(1.1)';
+            flipBtn.textContent = 'CASTING...';
+            flipBtn.disabled = true;
+            
+            coinContent.innerHTML = `
+                <div class="text-8xl font-light text-blue-400 animate-pulse mb-4" style="font-family: Georgia, serif;">◐</div>
+                <div class="text-lg text-gray-300 tracking-wider font-light animate-pulse">SPINNING...</div>
+            `;
+
+            setTimeout(() => {
+                const result = getMarkovPrediction();
+                markovState = result;
+                history = [result, ...history.slice(0, 9)];
+                tosses++;
+                
+                coin.classList.remove('animate-spin');
+                coin.style.transform = 'scale(1)';
+                
+                coinContent.innerHTML = `
+                    <div class="text-9xl font-light text-blue-400 mb-3" style="font-family: Georgia, serif;">${result === 'H' ? '◯' : '●'}</div>
+                    <div class="text-lg text-gray-300 tracking-wider font-light">${result === 'H' ? 'HEADS' : 'TAILS'}</div>
+                `;
+                
+                updateStats();
+                updateHistory();
+                updateQuote();
+                checkLimit();
+                
+                flipBtn.textContent = 'FLIP COIN';
+                flipBtn.disabled = false;
+                isFlipping = false;
+            }, 2500);
+        }
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('total-count').textContent = tosses;
+            document.getElementById('heads-count').textContent = history.filter(h => h === 'H').length;
+            document.getElementById('tails-count').textContent = history.filter(h => h === 'T').length;
+        }
+
+        // Update history
+        function updateHistory() {
+            if (history.length > 0) {
+                document.getElementById('history-section').style.display = 'block';
+                const historyDisplay = document.getElementById('history-display');
+                historyDisplay.innerHTML = '';
+                
+                history.forEach(flip => {
+                    const element = document.createElement('div');
+                    element.className = `w-10 h-10 rounded-full border-2 flex items-center justify-center text-sm font-light ${
+                        flip === 'H' 
+                            ? 'bg-blue-400 text-black border-blue-400' 
+                            : 'bg-transparent text-blue-400 border-blue-400'
+                    }`;
+                    element.style.fontFamily = 'Georgia, serif';
+                    element.textContent = flip === 'H' ? '◯' : '●';
+                    historyDisplay.appendChild(element);
+                });
+            }
+        }
+
+        // Check limit
+        function checkLimit() {
+            if (!isPremium && tosses >= 8) {
+                const remaining = 10 - tosses;
+                document.getElementById('remaining-flips').textContent = remaining;
+                document.getElementById('limit-warning').style.display = 'block';
+            }
+        }
+
+        // Buy premium
+        function buyPremium() {
+            isPremium = true;
+            document.getElementById('subscription-modal').style.display = 'none';
+            document.getElementById('premium-badge').style.display = 'inline-flex';
+            document.getElementById('limit-warning').style.display = 'none';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('subscription-modal').style.display = 'none';
+        }
+
+        // Reset app
+        function resetApp() {
+            tosses = 0;
+            history = [];
+            markovState = 'H';
+            
+            document.getElementById('coin-content').innerHTML = `
+                <div class="text-6xl text-blue-400 mb-4">🪙</div>
+                <div class="text-lg text-gray-300 tracking-wider font-light">READY</div>
+            `;
+            
+            updateStats();
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById('limit-warning').style.display = 'none';
+            updateQuote();
+        }
+
+        // Add CSS animation for falling
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize matrix rain
+        createMatrixRain();
+    </script>
+</body>
+</html>
