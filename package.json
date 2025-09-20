@@ -1,0 +1,31 @@
+{
+  "name": "fortuna-digital",
+  "version": "1.0.0",
+  "description": "Digital coin toss website with Markov chain probability",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "coin-toss",
+    "decision-making",
+    "markov-chain",
+    "react",
+    "fortune",
+    "digital-oracle"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.263.1"
+  }
+}
