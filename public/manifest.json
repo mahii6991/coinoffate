@@ -1,0 +1,55 @@
+{
+  "name": "Fortuna Digital - Coin of Fate",
+  "short_name": "Fortuna",
+  "description": "Experience the power of digital fortune with elegant coin toss decisions. Audentes fortuna iuvat - Fortune favors the bold.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00AAFF",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/public/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["utilities", "entertainment", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/public/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Flip Coin",
+      "short_name": "Flip",
+      "description": "Flip the coin of fate",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/public/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,22 @@
+/* TEAM */
+Name: Fortuna Digital Team
+Site: https://coinoffate.live/
+Location: Digital Realm
+
+/* THANKS */
+To all decision-makers who trust in fate.
+"Audentes fortuna iuvat" - Fortune favors the bold.
+
+/* SITE */
+Last update: 2025/10/02
+Language: English
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: Tailwind CSS, Vite
+Technology: Markov Chain Probability Engine
+SEO: Optimized for search engines
+Security: Protected against common attack vectors
+
+/* FORTUNE */
+Powered by: Ancient wisdom meets modern technology
+Philosophy: Embracing randomness with elegance
+Mission: Making decisions beautiful
