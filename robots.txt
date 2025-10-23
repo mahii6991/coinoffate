@@ -4,15 +4,24 @@ Allow: /
 # Sitemap
 Sitemap: https://coinoffate.live/sitemap.xml
 
-# Block security scans (based on your analytics showing wp-admin attacks)
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block security scans and malicious bots
 Disallow: /wp-admin/
 Disallow: /wordpress/
 Disallow: /.env
 Disallow: /.git/
 Disallow: /vendor/
 Disallow: /_profiler/
+Disallow: /admin/
+Disallow: /phpmyadmin/
 
 # Allow search engines to index all content
 Allow: /pages/
 Allow: /blog/
 Allow: /tools/
+Allow: /public/
+
+# Halloween-specific indexing hints
+# Primary keywords: halloween coin flip, haunted coin toss, spooky fortune teller, halloween game

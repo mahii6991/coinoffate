@@ -1,11 +1,11 @@
 {
-  "name": "Fortuna Digital - Coin of Fate",
-  "short_name": "Fortuna",
-  "description": "Experience the power of digital fortune with elegant coin toss decisions. Audentes fortuna iuvat - Fortune favors the bold.",
+  "name": "🎃 Haunted Coin of Fate - Halloween Fortune Teller",
+  "short_name": "Haunted Coin",
+  "description": "🦇 Dare to flip the cursed Halloween coin? Experience supernatural fortune-telling with spooky animations, eerie sounds, and mystical predictions. Perfect for Halloween fun!",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#00AAFF",
+  "background_color": "#0a0a0a",
+  "theme_color": "#FF6B00",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-US",
@@ -29,19 +29,20 @@
       "type": "image/svg+xml"
     }
   ],
-  "categories": ["utilities", "entertainment", "lifestyle"],
+  "categories": ["games", "entertainment", "lifestyle"],
   "screenshots": [
     {
       "src": "/public/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "label": "Haunted Coin of Fate - Halloween Fortune Teller"
     }
   ],
   "shortcuts": [
     {
-      "name": "Flip Coin",
+      "name": "Summon Fate",
       "short_name": "Flip",
-      "description": "Flip the coin of fate",
+      "description": "Flip the haunted Halloween coin",
       "url": "/",
       "icons": [
         {
@@ -51,5 +52,6 @@
       ]
     }
   ],
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7"
 }

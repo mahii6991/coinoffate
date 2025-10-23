@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://coinoffate.live/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2025-10-23</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://coinoffate.live/public/icon-512.png</image:loc>
+            <image:title>Haunted Halloween Coin of Fate</image:title>
+            <image:caption>Spooky Halloween fortune teller - Flip the cursed coin</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://coinoffate.live/pages/about/</loc>
