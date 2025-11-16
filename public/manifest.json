@@ -1,11 +1,11 @@
 {
-  "name": "🎃 Haunted Coin of Fate - Halloween Fortune Teller",
-  "short_name": "Haunted Coin",
-  "description": "🦇 Dare to flip the cursed Halloween coin? Experience supernatural fortune-telling with spooky animations, eerie sounds, and mystical predictions. Perfect for Halloween fun!",
+  "name": "🎄 Magical Coin of Fate - Christmas Fortune Teller",
+  "short_name": "Magical Coin",
+  "description": "🎅 Dare to flip the magical Christmas coin? Experience festive fortune-telling with enchanted animations, joyful sounds, and mystical predictions. Perfect for Christmas fun!",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
-  "theme_color": "#FF6B00",
+  "theme_color": "#C41E3A",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-US",
@@ -35,14 +35,14 @@
       "src": "/public/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "label": "Haunted Coin of Fate - Halloween Fortune Teller"
+      "label": "Magical Coin of Fate - Christmas Fortune Teller"
     }
   ],
   "shortcuts": [
     {
-      "name": "Summon Fate",
+      "name": "Discover Fate",
       "short_name": "Flip",
-      "description": "Flip the haunted Halloween coin",
+      "description": "Flip the magical Christmas coin",
       "url": "/",
       "icons": [
         {
