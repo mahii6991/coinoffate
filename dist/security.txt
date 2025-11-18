@@ -1,0 +1,8 @@
+Contact: mailto:security@coinoffate.live
+Expires: 2026-10-06T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://coinoffate.live/.well-known/security.txt
+
+# Security Policy
+# Thank you for helping to keep Coin of Fate secure!
+# Please report security vulnerabilities responsibly.
