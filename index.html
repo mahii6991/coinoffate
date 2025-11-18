@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>⭐ Magical Coin of Fate - Digital Fortune Teller | Interactive Coin Flip</title>
-    <meta name="title" content="⭐ Magical Coin of Fate - Digital Fortune Teller | Interactive Coin Flip">
-    <meta name="description" content="✨ Dare to flip the magical coin? Experience stunning fortune-telling with our enchanted digital coin flip tool. Beautiful animations, mystical sounds, and powerful predictions await. Perfect for any decision!">
+    <title>🎄 Magical Christmas Coin of Fate - Festive Fortune Teller | Interactive Coin Flip</title>
+    <meta name="title" content="🎄 Magical Christmas Coin of Fate - Festive Fortune Teller | Interactive Coin Flip">
+    <meta name="description" content="🎅 Dare to flip the magical Christmas coin? Experience a cozy holiday fortune-telling adventure with enchanted animations, festive sounds, and joyful predictions. Perfect for Christmas decisions!">
     <meta name="keywords" content="coin flip, magical coin toss, fortune teller, decision maker, coin game, magical fortune, digital coin, fortune teller, interactive game, decision tool">
     <meta name="author" content="Magical Coin of Fate">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -26,8 +26,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://coinoffate.live/">
-    <meta property="og:title" content="⭐ Magical Coin of Fate - Digital Fortune Teller">
-    <meta property="og:description" content="✨ Dare to flip the magical coin? Experience stunning fortune-telling with enchanted animations, mystical sounds, and powerful predictions!">
+    <meta property="og:title" content="🎄 Magical Christmas Coin of Fate - Festive Fortune Teller">
+    <meta property="og:description" content="🎅 Dare to flip the magical Christmas coin? Experience a cozy holiday fortune-telling adventure with enchanted animations, festive sounds, and joyful predictions!">
     <meta property="og:image" content="https://coinoffate.live/public/icon-512.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
@@ -43,9 +43,9 @@
     <meta name="twitter:image" content="https://coinoffate.live/public/icon-512.png">
     <meta name="twitter:image:alt" content="Magical Coin Fortune Teller">
 
-    <!-- Theme Color - Electric Blue -->
-    <meta name="theme-color" content="#2563eb">
-    <meta name="msapplication-TileColor" content="#1e3a8a">
+    <!-- Theme Color - Christmas Red & Gold -->
+    <meta name="theme-color" content="#8B0000">
+    <meta name="msapplication-TileColor" content="#D4AF37">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/public/manifest.json">
@@ -158,9 +158,27 @@
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: #0a0a0a;
+            background: linear-gradient(to bottom, #1a0f0a 0%, #2d1810 50%, #1a0f0a 100%);
             color: #fff;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%235C4033" opacity="0.1" width="100" height="100"/></svg>'),
+                radial-gradient(ellipse at 50% 30%, rgba(212, 175, 55, 0.15), transparent 70%),
+                radial-gradient(ellipse at 20% 80%, rgba(139, 0, 0, 0.1), transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(34, 139, 34, 0.08), transparent 50%);
+            background-size: 200px 200px, 100% 100%, 100% 100%, 100% 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
         @keyframes magicalFloat {
@@ -176,14 +194,14 @@
             to { transform: rotate(360deg); }
         }
 
-        @keyframes patrioticGlow {
+        @keyframes christmasGlow {
             0%, 100% {
                 opacity: 1;
-                box-shadow: 0 0 40px rgba(37, 99, 235, 0.7), 0 0 80px rgba(177, 26, 33, 0.5);
+                box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(139, 0, 0, 0.4);
             }
             50% {
-                opacity: 0.85;
-                box-shadow: 0 0 60px rgba(37, 99, 235, 0.9), 0 0 100px rgba(177, 26, 33, 0.7);
+                opacity: 0.9;
+                box-shadow: 0 0 60px rgba(212, 175, 55, 0.8), 0 0 100px rgba(139, 0, 0, 0.6);
             }
         }
 
@@ -228,7 +246,7 @@
         }
 
         .animate-pulse {
-            animation: patrioticGlow 2.5s infinite;
+            animation: christmasGlow 2.5s infinite;
         }
 
         .twinkle {
@@ -237,17 +255,17 @@
 
         .coin-container {
             box-shadow:
-                0 0 60px rgba(37, 99, 235, 0.6),
-                0 0 100px rgba(177, 26, 33, 0.4),
-                inset 0 0 80px rgba(37, 99, 235, 0.15);
+                0 0 60px rgba(212, 175, 55, 0.5),
+                0 0 100px rgba(139, 0, 0, 0.3),
+                inset 0 0 80px rgba(212, 175, 55, 0.15);
             background: radial-gradient(circle at center,
-                rgba(37, 99, 235, 0.25),
-                rgba(30, 58, 138, 0.15),
-                rgba(0, 0, 0, 0.9));
+                rgba(212, 175, 55, 0.2),
+                rgba(139, 69, 19, 0.15),
+                rgba(45, 24, 16, 0.95));
         }
 
         .bg-gradient-text {
-            background: linear-gradient(135deg, #b11a21, #2563eb, #60a5fa, #e0474c);
+            background: linear-gradient(135deg, #D4AF37, #8B0000, #FFD700, #228B22);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -273,19 +291,19 @@
             animation: shimmer 12s ease-in-out infinite;
         }
 
-        /* Patriotic glow effect - Red, White, Blue */
+        /* Christmas glow effect - Gold, Red, Warm tones */
         .patriotic-glow {
-            filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.7))
-                    drop-shadow(0 0 12px rgba(177, 26, 33, 0.5));
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7))
+                    drop-shadow(0 0 12px rgba(139, 0, 0, 0.5));
         }
 
-        /* Magical text shadow - Red, Blue, White highlights */
+        /* Magical text shadow - Gold, Red, Warm highlights */
         .magical-text {
             text-shadow:
-                0 0 10px rgba(37, 99, 235, 0.9),
-                0 0 20px rgba(177, 26, 33, 0.7),
-                0 0 30px rgba(96, 165, 250, 0.5),
-                0 2px 4px rgba(0, 0, 0, 0.5);
+                0 0 10px rgba(212, 175, 55, 0.8),
+                0 0 20px rgba(139, 0, 0, 0.6),
+                0 0 30px rgba(255, 215, 0, 0.4),
+                0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         /* Hover micro-interactions */
@@ -295,7 +313,7 @@
 
         .hover-lift:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
 
         /* Pulse ring animation */
@@ -307,26 +325,26 @@
 <body>
     <div id="app">
         <!-- Loading Screen -->
-        <div id="loading" class="min-h-screen bg-black text-blue-500 font-mono relative overflow-hidden">
+        <div id="loading" class="min-h-screen relative overflow-hidden" style="background: linear-gradient(to bottom, #1a0f0a 0%, #2d1810 50%, #1a0f0a 100%);">
             <div class="absolute inset-0">
                 <div id="particle-layer" class="shimmer"></div>
                 <div id="floating-particles"></div>
             </div>
             <div class="relative z-10 flex items-center justify-center min-h-screen">
                 <div class="text-center px-4">
-                    <div class="text-6xl mb-6 patriotic-glow">✨</div>
-                    <div class="text-4xl mb-4 twinkle font-light tracking-wider magical-text" style="font-family: Georgia, serif;">
-                        Magical Coin of Fate
+                    <div class="text-6xl mb-6 patriotic-glow">🎄</div>
+                    <div class="text-4xl mb-4 twinkle font-light tracking-wider magical-text" style="font-family: Georgia, serif; color: #D4AF37;">
+                        Magical Christmas Coin
                     </div>
-                    <div class="text-lg text-blue-400 italic mb-2">
-                        "Believe... the magic is real"
+                    <div class="text-lg italic mb-2" style="color: #FFD700;">
+                        "A cozy Christmas miracle awaits..."
                     </div>
-                    <div class="text-sm text-gray-500 mb-8">
-                        Dare you flip the magical coin?
+                    <div class="text-sm text-gray-400 mb-8">
+                        🎅 Dare you flip the festive coin? 🦌
                     </div>
                     <div class="mt-8">
-                        <button onclick="startApp()" class="px-8 py-3 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-300 font-light tracking-wider patriotic-glow hover-lift">
-                            ENTER THE MAGIC
+                        <button onclick="startApp()" class="px-8 py-3 border-2 hover:text-white transition-all duration-300 font-light tracking-wider patriotic-glow hover-lift" style="border-color: #D4AF37; color: #D4AF37; background: rgba(212, 175, 55, 0.1);">
+                            🎄 ENTER THE MAGIC 🎄
                         </button>
                     </div>
                 </div>
@@ -334,60 +352,75 @@
         </div>
 
         <!-- Main App -->
-        <div id="main-app" class="min-h-screen bg-black text-white relative overflow-hidden" style="display: none;">
-            <!-- Background - Red, White, Blue Theme -->
+        <div id="main-app" class="min-h-screen text-white relative overflow-hidden" style="display: none; background: linear-gradient(to bottom, #1a0f0a 0%, #2d1810 50%, #1a0f0a 100%);">
+            <!-- Background - Cozy Christmas Theme -->
             <div class="absolute inset-0">
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-900/25 via-black to-red-900/20"></div>
-                <div class="absolute inset-0 opacity-40 magical-flow" style="
-                    background-image:
-                        radial-gradient(circle at 30% 70%, rgba(37,99,235,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(177,26,33,0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(96,165,250,0.06) 0%, transparent 40%),
-                        repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(37,99,235,0.02) 102px),
-                        repeating-linear-gradient(-45deg, transparent, transparent 100px, rgba(177,26,33,0.02) 102px);
-                    background-size: 450px 450px, 350px 350px, 500px 500px, 200px 200px, 200px 200px;
+                <!-- Wood paneling effect -->
+                <div class="absolute inset-0 opacity-30" style="background:
+                    repeating-linear-gradient(90deg, #5C4033 0px, #8B6F47 2px, #5C4033 4px, #8B6F47 6px, #5C4033 8px),
+                    linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(92, 64, 51, 0.2));
+                    background-size: 100% 100%;
                 "></div>
 
-                <!-- Floating Magical elements -->
+                <!-- Christmas tree in background (left side) -->
+                <div class="absolute left-0 bottom-0 text-9xl opacity-20" style="font-size: 25rem; line-height: 1;">🎄</div>
+
+                <!-- Fireplace glow effect (bottom) -->
+                <div class="absolute bottom-0 left-0 right-0 h-64 shimmer" style="background: radial-gradient(ellipse at 50% 100%, rgba(212, 175, 55, 0.15) 0%, rgba(139, 0, 0, 0.08) 40%, transparent 70%);"></div>
+
+                <!-- Warm ambient lighting -->
+                <div class="absolute inset-0 opacity-25 magical-flow" style="
+                    background-image:
+                        radial-gradient(circle at 30% 70%, rgba(212,175,55,0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(139,0,0,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(255,215,0,0.06) 0%, transparent 40%);
+                    background-size: 450px 450px, 350px 350px, 500px 500px;
+                "></div>
+
+                <!-- Floating Christmas elements -->
                 <div class="absolute inset-0" id="floating-elements"></div>
 
-                <!-- Ambient light layer -->
-                <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-900/20 to-transparent shimmer"></div>
+                <!-- Reindeer decorations (top corners) -->
+                <div class="absolute top-8 left-8 text-6xl opacity-40 twinkle">🦌</div>
+                <div class="absolute top-8 right-8 text-6xl opacity-40 twinkle" style="animation-delay: 1.5s; transform: scaleX(-1);">🦌</div>
+
+                <!-- Santa decoration (top center) -->
+                <div class="absolute top-4 left-1/2 transform -translate-x-1/2 text-5xl opacity-30 particle">🎅</div>
             </div>
 
             <!-- Header -->
-            <div class="relative text-center py-16 px-4 border-b border-blue-800/30">
+            <div class="relative text-center py-16 px-4" style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
                 <div class="flex items-center justify-center gap-4 mb-8">
-                    <div class="w-12 h-12 text-blue-500 flex items-center justify-center text-4xl star">⭐</div>
+                    <div class="w-12 h-12 flex items-center justify-center text-4xl star">🎄</div>
                     <div class="text-center">
                         <h1 class="text-6xl font-bold tracking-widest bg-gradient-text mb-2 magical-text" style="font-family: Georgia, serif;">
-                            MAGICAL COIN
+                            CHRISTMAS COIN
                         </h1>
-                        <div class="text-lg text-blue-400 italic font-light tracking-wider twinkle" style="font-family: Georgia, serif;">
-                            "Your destiny awaits..."
+                        <div class="text-lg italic font-light tracking-wider twinkle" style="font-family: Georgia, serif; color: #FFD700;">
+                            "A cozy Christmas miracle..."
                         </div>
-                        <div class="text-sm text-gray-500 mt-2">
-                            Let fate reveal the answer
+                        <div class="text-sm mt-2" style="color: #D4AF37;">
+                            🎅 Let the festive spirit decide 🦌
                         </div>
                     </div>
-                    <div class="w-12 h-12 text-red-500 flex items-center justify-center text-4xl star" style="animation-delay: 2s;">✨</div>
+                    <div class="w-12 h-12 flex items-center justify-center text-4xl star" style="animation-delay: 2s;">🎁</div>
                 </div>
 
-                <div id="premium-badge" class="inline-flex items-center gap-2 px-4 py-2 border border-blue-500/50 rounded bg-blue-900/20 patriotic-glow" style="display: none;">
-                    <span>⭐</span>
-                    <span class="text-sm tracking-wide text-blue-400 font-light">MAGICAL PREMIUM</span>
+                <div id="premium-badge" class="inline-flex items-center gap-2 px-4 py-2 border rounded patriotic-glow" style="display: none; border-color: rgba(212, 175, 55, 0.5); background: rgba(139, 0, 0, 0.2);">
+                    <span>🎄</span>
+                    <span class="text-sm tracking-wide font-light" style="color: #FFD700;">CHRISTMAS PREMIUM</span>
                 </div>
             </div>
 
             <!-- Quote Section -->
-            <div id="quote-section" class="relative py-12 px-6 border-b border-blue-800/20">
+            <div id="quote-section" class="relative py-12 px-6" style="border-bottom: 1px solid rgba(212, 175, 55, 0.15);">
                 <div class="max-w-2xl mx-auto text-center">
-                    <div class="text-4xl mb-4 twinkle">✨</div>
-                    <p id="current-quote" class="text-xl text-blue-300 italic leading-relaxed font-light twinkle" style="font-family: Georgia, serif;">
-                        "The magic whispers your fortune..."
+                    <div class="text-4xl mb-4 twinkle">🎄</div>
+                    <p id="current-quote" class="text-xl italic leading-relaxed font-light twinkle" style="font-family: Georgia, serif; color: #FFD700;">
+                        "The Christmas spirit whispers your fortune..."
                     </p>
-                    <p id="quote-translation" class="text-sm text-gray-500 mt-3 tracking-wider font-light">
-                        What destiny awaits in the stars?
+                    <p id="quote-translation" class="text-sm mt-3 tracking-wider font-light" style="color: #D4AF37;">
+                        What festive destiny awaits?
                     </p>
                 </div>
             </div>
@@ -397,56 +430,56 @@
                 <!-- Coin -->
                 <div class="flex justify-center mb-16">
                     <div class="relative">
-                        <div id="coin" class="w-64 h-64 rounded-full border-4 border-blue-500 shadow-2xl flex items-center justify-center transform transition-all duration-2500 hover:scale-105 coin-container animate-pulse hover-lift">
+                        <div id="coin" class="w-64 h-64 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-2500 hover:scale-105 coin-container animate-pulse hover-lift" style="border: 4px solid #D4AF37;">
                             <div id="coin-content" class="text-center">
-                                <div class="text-8xl mb-4 patriotic-glow">✨</div>
-                                <div class="text-lg text-blue-300 tracking-wider font-light magical-text">READY FOR MAGIC</div>
+                                <div class="text-8xl mb-4 patriotic-glow">🎄</div>
+                                <div class="text-lg tracking-wider font-light magical-text" style="color: #FFD700;">READY FOR MAGIC</div>
                             </div>
                         </div>
 
-                        <!-- Magical glow rings - Red, White, Blue -->
-                        <div class="absolute inset-0 rounded-full border border-blue-500/50 scale-110 pulse-ring"></div>
-                        <div class="absolute inset-0 rounded-full border border-red-500/30 scale-125 pulse-ring" style="animation-delay: 0.7s;"></div>
-                        <div class="absolute inset-0 rounded-full border border-blue-400/20 scale-140 pulse-ring" style="animation-delay: 1.4s;"></div>
+                        <!-- Magical glow rings - Gold, Red, Green -->
+                        <div class="absolute inset-0 rounded-full border scale-110 pulse-ring" style="border-color: rgba(212, 175, 55, 0.5);"></div>
+                        <div class="absolute inset-0 rounded-full border scale-125 pulse-ring" style="border-color: rgba(139, 0, 0, 0.3); animation-delay: 0.7s;"></div>
+                        <div class="absolute inset-0 rounded-full border scale-140 pulse-ring" style="border-color: rgba(34, 139, 34, 0.2); animation-delay: 1.4s;"></div>
 
-                        <!-- Floating particles around coin -->
-                        <div class="absolute -left-12 top-1/4 text-3xl particle" style="animation-delay: 0.5s;">⭐</div>
-                        <div class="absolute -right-12 top-1/3 text-3xl particle" style="animation-delay: 1.5s;">💫</div>
-                        <div class="absolute -left-8 bottom-1/4 text-2xl star" style="animation-delay: 2.5s;">✨</div>
-                        <div class="absolute -right-8 bottom-1/3 text-2xl star" style="animation-delay: 3.5s;">🌟</div>
+                        <!-- Floating Christmas particles around coin -->
+                        <div class="absolute -left-12 top-1/4 text-3xl particle" style="animation-delay: 0.5s;">🎁</div>
+                        <div class="absolute -right-12 top-1/3 text-3xl particle" style="animation-delay: 1.5s;">❄️</div>
+                        <div class="absolute -left-8 bottom-1/4 text-2xl star" style="animation-delay: 2.5s;">⛄</div>
+                        <div class="absolute -right-8 bottom-1/3 text-2xl star" style="animation-delay: 3.5s;">🔔</div>
                     </div>
                 </div>
 
                 <!-- Flip Button -->
                 <div class="text-center mb-12">
-                    <button id="flip-btn" onclick="flipCoin()" class="px-16 py-5 border-2 border-blue-500 hover:bg-gradient-to-r hover:from-blue-500 hover:to-red-500 hover:text-white hover:border-transparent transition-all duration-300 font-bold tracking-widest text-xl transform hover:scale-105 patriotic-glow magical-text hover-lift" style="font-family: Georgia, serif;">
-                        ✨ DISCOVER FATE ✨
+                    <button id="flip-btn" onclick="flipCoin()" class="px-16 py-5 border-2 hover:text-white hover:border-transparent transition-all duration-300 font-bold tracking-widest text-xl transform hover:scale-105 patriotic-glow magical-text hover-lift" style="font-family: Georgia, serif; border-color: #D4AF37; color: #FFD700; background: linear-gradient(to right, rgba(212, 175, 55, 0.1), rgba(139, 0, 0, 0.1));">
+                        🎄 DISCOVER YOUR FATE 🎅
                     </button>
                 </div>
 
                 <!-- Stats -->
                 <div class="grid grid-cols-3 gap-6 mb-12">
-                    <div class="text-center p-6 border border-blue-800/30 bg-blue-900/10 rounded patriotic-glow hover-lift">
-                        <div class="text-3xl mb-2 twinkle">✨</div>
-                        <div id="total-count" class="text-4xl font-bold text-blue-400 mb-2 magical-text" style="font-family: Georgia, serif;">0</div>
-                        <div class="text-xs text-gray-500 tracking-wider font-light">FLIPS</div>
+                    <div class="text-center p-6 border rounded patriotic-glow hover-lift" style="border-color: rgba(212, 175, 55, 0.3); background: rgba(139, 69, 19, 0.15);">
+                        <div class="text-3xl mb-2 twinkle">🎄</div>
+                        <div id="total-count" class="text-4xl font-bold mb-2 magical-text" style="font-family: Georgia, serif; color: #FFD700;">0</div>
+                        <div class="text-xs tracking-wider font-light" style="color: #D4AF37;">FLIPS</div>
                     </div>
-                    <div class="text-center p-6 border border-blue-800/30 bg-blue-900/10 rounded patriotic-glow hover-lift">
-                        <div class="text-3xl mb-2 twinkle">⭐</div>
-                        <div id="heads-count" class="text-4xl font-bold text-blue-400 mb-2 magical-text" style="font-family: Georgia, serif;">0</div>
-                        <div class="text-xs text-gray-500 tracking-wider font-light">HEADS</div>
+                    <div class="text-center p-6 border rounded patriotic-glow hover-lift" style="border-color: rgba(212, 175, 55, 0.3); background: rgba(139, 69, 19, 0.15);">
+                        <div class="text-3xl mb-2 twinkle">🎅</div>
+                        <div id="heads-count" class="text-4xl font-bold mb-2 magical-text" style="font-family: Georgia, serif; color: #FFD700;">0</div>
+                        <div class="text-xs tracking-wider font-light" style="color: #D4AF37;">HEADS</div>
                     </div>
-                    <div class="text-center p-6 border border-red-800/30 bg-red-900/10 rounded patriotic-glow hover-lift">
-                        <div class="text-3xl mb-2 twinkle">🔴</div>
-                        <div id="tails-count" class="text-4xl font-bold text-red-400 mb-2 magical-text" style="font-family: Georgia, serif;">0</div>
-                        <div class="text-xs text-gray-500 tracking-wider font-light">TAILS</div>
+                    <div class="text-center p-6 border rounded patriotic-glow hover-lift" style="border-color: rgba(139, 0, 0, 0.4); background: rgba(139, 0, 0, 0.15);">
+                        <div class="text-3xl mb-2 twinkle">🦌</div>
+                        <div id="tails-count" class="text-4xl font-bold mb-2 magical-text" style="font-family: Georgia, serif; color: #FF6B6B;">0</div>
+                        <div class="text-xs tracking-wider font-light" style="color: #D4AF37;">TAILS</div>
                     </div>
                 </div>
 
                 <!-- History -->
                 <div id="history-section" class="mb-12" style="display: none;">
-                    <h3 class="text-center text-lg font-light mb-6 tracking-wider text-blue-400 twinkle" style="font-family: Georgia, serif;">
-                        ✨ Magical Chronicle ✨
+                    <h3 class="text-center text-lg font-light mb-6 tracking-wider twinkle" style="font-family: Georgia, serif; color: #FFD700;">
+                        🎄 Christmas Chronicle 🎄
                     </h3>
                     <div class="flex justify-center">
                         <div id="history-display" class="flex gap-3"></div>
@@ -454,59 +487,59 @@
                 </div>
 
                 <!-- Free Limit Warning -->
-                <div id="limit-warning" class="mb-8 p-4 border-2 border-blue-600/60 bg-blue-900/30 text-center rounded patriotic-glow" style="display: none;">
-                    <div class="text-3xl mb-2">⚠️</div>
-                    <p class="text-blue-300 text-sm font-light">
-                        The magic is fading... <span id="remaining-flips">2</span> flips remaining!
+                <div id="limit-warning" class="mb-8 p-4 border-2 text-center rounded patriotic-glow" style="display: none; border-color: rgba(212, 175, 55, 0.6); background: rgba(139, 69, 19, 0.3);">
+                    <div class="text-3xl mb-2">🎅</div>
+                    <p class="text-sm font-light" style="color: #FFD700;">
+                        The Christmas magic is fading... <span id="remaining-flips">2</span> flips remaining!
                     </p>
                 </div>
 
                 <!-- Reset Button -->
                 <div class="text-center">
-                    <button onclick="resetApp()" class="px-10 py-3 border border-gray-700 hover:border-blue-500 text-gray-500 hover:text-blue-400 transition-all duration-300 font-light tracking-wider hover-lift" style="font-family: Georgia, serif;">
-                        ✨ RESET MAGIC ✨
+                    <button onclick="resetApp()" class="px-10 py-3 border transition-all duration-300 font-light tracking-wider hover-lift" style="font-family: Georgia, serif; border-color: rgba(139, 69, 19, 0.5); color: #D4AF37;">
+                        🎄 RESET MAGIC 🎄
                     </button>
                 </div>
             </div>
 
             <!-- Subscription Modal -->
-            <div id="subscription-modal" class="fixed inset-0 bg-black/95 flex items-center justify-center p-4" style="display: none;">
-                <div class="bg-gradient-to-br from-blue-900/30 via-black to-red-900/20 border-2 border-blue-500 p-8 max-w-md w-full text-center relative rounded patriotic-glow">
-                    <div class="absolute inset-0 bg-blue-500/5 rounded"></div>
+            <div id="subscription-modal" class="fixed inset-0 flex items-center justify-center p-4" style="display: none; background: rgba(26, 15, 10, 0.95);">
+                <div class="border-2 p-8 max-w-md w-full text-center relative rounded patriotic-glow" style="background: linear-gradient(to bottom right, rgba(139, 69, 19, 0.3), rgba(26, 15, 10, 0.9), rgba(139, 0, 0, 0.2)); border-color: #D4AF37;">
+                    <div class="absolute inset-0 rounded" style="background: rgba(212, 175, 55, 0.05);"></div>
                     <div class="relative z-10">
                         <div class="mb-6">
-                            <div class="text-6xl mx-auto mb-6 twinkle">✨</div>
-                            <h2 class="text-3xl font-bold mb-4 tracking-wider text-blue-400 magical-text" style="font-family: Georgia, serif;">
-                                Unleash Infinite Magic
+                            <div class="text-6xl mx-auto mb-6 twinkle">🎄</div>
+                            <h2 class="text-3xl font-bold mb-4 tracking-wider magical-text" style="font-family: Georgia, serif; color: #FFD700;">
+                                Infinite Christmas Magic
                             </h2>
-                            <p class="text-gray-300 leading-relaxed font-light">
-                                Unlimited power awaits for endless mystical flips...
+                            <p class="leading-relaxed font-light" style="color: #D4AF37;">
+                                Unlimited festive flips await you this holiday season...
                             </p>
                         </div>
 
-                        <div class="border-2 border-blue-800/50 p-6 mb-8 bg-blue-900/20 rounded patriotic-glow">
-                            <div class="text-4xl font-bold text-blue-400 mb-4 magical-text" style="font-family: Georgia, serif;">$2.99/month</div>
-                            <div class="space-y-3 text-sm text-gray-300 font-light">
+                        <div class="border-2 p-6 mb-8 rounded patriotic-glow" style="border-color: rgba(212, 175, 55, 0.5); background: rgba(139, 69, 19, 0.2);">
+                            <div class="text-4xl font-bold mb-4 magical-text" style="font-family: Georgia, serif; color: #FFD700;">$2.99/month</div>
+                            <div class="space-y-3 text-sm font-light" style="color: #D4AF37;">
                                 <div class="flex items-center justify-center gap-3">
                                     <span>♾️</span>
-                                    <span>Unlimited magical flips</span>
+                                    <span>Unlimited Christmas flips</span>
                                 </div>
                                 <div class="flex items-center justify-center gap-3">
-                                    <span>⭐</span>
-                                    <span>Magical Premium badge</span>
+                                    <span>🎄</span>
+                                    <span>Christmas Premium badge</span>
                                 </div>
                                 <div class="flex items-center justify-center gap-3">
-                                    <span>🔮</span>
-                                    <span>Exclusive mystical sound effects</span>
+                                    <span>🔔</span>
+                                    <span>Exclusive festive sound effects</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="space-y-4">
-                            <button onclick="buyPremium()" class="w-full py-3 bg-gradient-to-r from-blue-500 to-red-500 text-white hover:from-blue-600 hover:to-red-600 transition-all duration-300 font-bold tracking-wider patriotic-glow hover-lift" style="font-family: Georgia, serif;">
-                                ✨ UNLOCK UNLIMITED MAGIC ✨
+                            <button onclick="buyPremium()" class="w-full py-3 text-white transition-all duration-300 font-bold tracking-wider patriotic-glow hover-lift" style="font-family: Georgia, serif; background: linear-gradient(to right, #D4AF37, #8B0000);">
+                                🎅 UNLOCK UNLIMITED MAGIC 🎄
                             </button>
-                            <button onclick="closeModal()" class="w-full py-3 border border-gray-600 hover:border-blue-500 text-gray-400 hover:text-blue-400 transition-all duration-300 font-light tracking-wider hover-lift" style="font-family: Georgia, serif;">
+                            <button onclick="closeModal()" class="w-full py-3 border transition-all duration-300 font-light tracking-wider hover-lift" style="font-family: Georgia, serif; border-color: rgba(139, 69, 19, 0.6); color: #D4AF37;">
                                 MAYBE LATER
                             </button>
                         </div>
@@ -515,18 +548,18 @@
             </div>
 
             <!-- Footer -->
-            <div class="relative border-t border-blue-800/30 py-8 text-center">
-                <div class="space-y-3 text-xs text-gray-600 font-light">
+            <div class="relative py-8 text-center" style="border-top: 1px solid rgba(212, 175, 55, 0.2);">
+                <div class="space-y-3 text-xs font-light">
                     <div class="flex justify-center gap-4 text-2xl mb-4">
-                        <span class="star">⭐</span>
-                        <span class="particle" style="animation-delay: 0.5s;">✨</span>
-                        <span class="star" style="animation-delay: 1s;">💫</span>
-                        <span class="particle" style="animation-delay: 1.5s;">🌟</span>
-                        <span class="star" style="animation-delay: 2s;">⭐</span>
+                        <span class="star">🎄</span>
+                        <span class="particle" style="animation-delay: 0.5s;">🎅</span>
+                        <span class="star" style="animation-delay: 1s;">🦌</span>
+                        <span class="particle" style="animation-delay: 1.5s;">🎁</span>
+                        <span class="star" style="animation-delay: 2s;">⛄</span>
                     </div>
-                    <p class="text-blue-500/70">Powered by Magical Markov Chain Probability</p>
-                    <p style="font-family: Georgia, serif;" class="italic">"In the stars above, your destiny shines..."</p>
-                    <p class="text-xs">Made with mystical magic ✨</p>
+                    <p style="color: rgba(212, 175, 55, 0.7);">Powered by Magical Markov Chain Probability</p>
+                    <p style="font-family: Georgia, serif; color: #D4AF37;" class="italic">"In this cozy Christmas season, your destiny awaits..."</p>
+                    <p class="text-xs" style="color: #8B6F47;">Made with festive Christmas magic 🎄</p>
                 </div>
             </div>
         </div>
@@ -545,20 +578,20 @@
             'T': { 'H': 0.55, 'T': 0.45 }
         };
 
-        // Magical quotes
+        // Christmas magical quotes
         const magicalQuotes = [
-            "The magic has spoken... believe in wonder|Your fate sparkles in the cosmos",
-            "Embrace the wonder... miracles await|Magic reveals eternal truths",
-            "The veil of magic grows strong|What destiny brings beckons you",
-            "Ancient magic guides your path|The mystical realm calls",
-            "In starlight, truth is revealed|Your fortune awaits in wonder",
-            "The magical coin knows your fate|Cosmic powers at work",
-            "Stars dance in the moonlight|Your destiny is written in light",
-            "The magical realm has chosen|Mystical energies surround you",
-            "Embrace what the magic brings|Fortune favors the bold souls",
-            "The cosmic voices sing out|Your path is illuminated by starlight",
-            "Destiny awaits your choice|The universe decides your fortune",
-            "Eternal magic guides the coin|Celestial forces align"
+            "The Christmas spirit has spoken... believe in festive wonder|Your fate twinkles like holiday lights",
+            "Embrace the cozy wonder... Christmas miracles await|The season reveals joyful truths",
+            "The warmth of Christmas grows strong|What festive destiny brings beckons you",
+            "Ancient holiday magic guides your path|The Christmas realm calls",
+            "By firelight and tree glow, truth is revealed|Your fortune awaits in warmth",
+            "The magical Christmas coin knows your fate|Festive powers at work",
+            "Snowflakes dance in the moonlight|Your destiny is written in holiday cheer",
+            "The Christmas realm has chosen|Cozy energies surround you",
+            "Embrace what the season brings|Fortune favors festive souls",
+            "The carolers' voices sing out|Your path is illuminated by Christmas lights",
+            "Holiday destiny awaits your choice|Santa's magic decides your fortune",
+            "Eternal Christmas magic guides the coin|Festive forces align"
         ];
 
         // Sound effects (using Web Audio API for festive sounds)
@@ -606,10 +639,10 @@
             oscillator.stop(audioContext.currentTime + 0.3);
         }
 
-        // Floating particles effect (falling stars and sparkles)
+        // Floating particles effect (falling snowflakes and Christmas elements)
         function createFloatingParticles() {
             const container = document.getElementById('floating-particles');
-            const particleChars = ['⭐', '✨', '💫', '🌟', '✦'];
+            const particleChars = ['❄️', '⛄', '🎄', '🎁', '⭐', '🔔'];
             const columns = Math.floor(window.innerWidth / 50);
 
             for (let i = 0; i < columns; i++) {
@@ -627,10 +660,10 @@
             }
         }
 
-        // Create floating magical elements
+        // Create floating Christmas elements
         function createFloatingElements() {
             const container = document.getElementById('floating-elements');
-            const elements = ['⭐', '✨', '💫', '🌟', '✦', '💠'];
+            const elements = ['🎄', '❄️', '⛄', '🎁', '🔔', '🎅', '🦌', '⭐'];
 
             for (let i = 0; i < 25; i++) {
                 const element = document.createElement('div');
@@ -652,9 +685,9 @@
             }
         }
 
-        // Create spooky particle burst effect
+        // Create festive particle burst effect
         function createParticleBurst(x, y) {
-            const particles = ['✨', '⭐', '💫', '🌟'];
+            const particles = ['❄️', '⛄', '🎄', '🎁', '⭐', '🔔'];
             for (let i = 0; i < 12; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'absolute text-2xl';
@@ -724,12 +757,12 @@
 
             coin.classList.add('animate-spin');
             coin.style.transform = 'scale(1.2)';
-            flipBtn.textContent = '✨ MAGIC IN PROGRESS... ✨';
+            flipBtn.textContent = '🎄 MAGIC IN PROGRESS... 🎄';
             flipBtn.disabled = true;
 
             coinContent.innerHTML = `
-                <div class="text-9xl animate-pulse mb-4 patriotic-glow">🌟</div>
-                <div class="text-lg text-blue-300 tracking-wider font-light animate-pulse magical-text">FATE DECIDING...</div>
+                <div class="text-9xl animate-pulse mb-4 patriotic-glow">⛄</div>
+                <div class="text-lg tracking-wider font-light animate-pulse magical-text" style="color: #FFD700;">FATE DECIDING...</div>
             `;
 
             // Create particle effects during spin
@@ -754,8 +787,8 @@
                 // Heads or Tails result
                 const isHeads = result === 'H';
                 coinContent.innerHTML = `
-                    <div class="text-9xl mb-3 patriotic-glow">${isHeads ? '⭐' : '🔴'}</div>
-                    <div class="text-2xl ${isHeads ? 'text-blue-400' : 'text-red-400'} tracking-wider font-bold magical-text">${isHeads ? 'HEADS!' : 'TAILS!'}</div>
+                    <div class="text-9xl mb-3 patriotic-glow">${isHeads ? '🎅' : '🦌'}</div>
+                    <div class="text-2xl tracking-wider font-bold magical-text" style="color: ${isHeads ? '#FFD700' : '#FF6B6B'};">${isHeads ? 'HEADS!' : 'TAILS!'}</div>
                 `;
 
                 updateStats();
@@ -763,7 +796,7 @@
                 updateQuote();
                 checkLimit();
 
-                flipBtn.textContent = '🎄 DISCOVER FATE 🎄';
+                flipBtn.textContent = '🎄 DISCOVER YOUR FATE 🎅';
                 flipBtn.disabled = false;
                 isFlipping = false;
             }, 2500);
@@ -786,12 +819,10 @@
                 history.forEach(flip => {
                     const element = document.createElement('div');
                     const isHeads = flip === 'H';
-                    element.className = `w-12 h-12 rounded-full border-2 flex items-center justify-center text-2xl transition-all hover:scale-110 ${
-                        isHeads
-                            ? 'bg-blue-600 border-blue-500 patriotic-glow'
-                            : 'bg-red-600 border-red-500 patriotic-glow'
-                    }`;
-                    element.textContent = isHeads ? '⭐' : '🔴';
+                    element.className = `w-12 h-12 rounded-full border-2 flex items-center justify-center text-2xl transition-all hover:scale-110 patriotic-glow`;
+                    element.style.background = isHeads ? 'rgba(212, 175, 55, 0.4)' : 'rgba(139, 0, 0, 0.4)';
+                    element.style.borderColor = isHeads ? '#D4AF37' : '#8B0000';
+                    element.textContent = isHeads ? '🎅' : '🦌';
                     historyDisplay.appendChild(element);
                 });
             }
@@ -827,8 +858,8 @@
             markovState = 'H';
 
             document.getElementById('coin-content').innerHTML = `
-                <div class="text-8xl mb-4 patriotic-glow">✨</div>
-                <div class="text-lg text-blue-300 tracking-wider font-light magical-text">READY FOR MAGIC</div>
+                <div class="text-8xl mb-4 patriotic-glow">🎄</div>
+                <div class="text-lg tracking-wider font-light magical-text" style="color: #FFD700;">READY FOR MAGIC</div>
             `;
 
             updateStats();
