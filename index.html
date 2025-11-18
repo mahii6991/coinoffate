@@ -160,14 +160,43 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(to bottom, #1a0f0a 0%, #2d1810 50%, #1a0f0a 100%);
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
+        :root {
+            /* Modern Premium Color Palette */
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --secondary-light: #f472b6;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+
+            /* Neutrals */
+            --bg-dark: #0f0f1e;
+            --bg-darker: #07070d;
+            --bg-light: #1a1a2e;
+            --surface: rgba(255, 255, 255, 0.05);
+            --surface-hover: rgba(255, 255, 255, 0.1);
+
+            /* Text */
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3c2;
+            --text-muted: #6b6b8a;
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(ellipse at top, #1a1a3e 0%, var(--bg-dark) 50%, var(--bg-darker) 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated gradient background */
         body::before {
             content: '';
             position: fixed;
@@ -176,11 +205,31 @@
             right: 0;
             bottom: 0;
             background:
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%235C4033" opacity="0.1" width="100" height="100"/></svg>'),
-                radial-gradient(ellipse at 50% 30%, rgba(212, 175, 55, 0.15), transparent 70%),
-                radial-gradient(ellipse at 20% 80%, rgba(139, 0, 0, 0.1), transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(34, 139, 34, 0.08), transparent 50%);
-            background-size: 200px 200px, 100% 100%, 100% 100%, 100% 100%;
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15), transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.15), transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.1), transparent 70%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Subtle grid pattern */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
             pointer-events: none;
             z-index: 0;
         }
@@ -198,21 +247,24 @@
             to { transform: rotate(360deg); }
         }
 
-        @keyframes christmasGlow {
+        @keyframes modernGlow {
             0%, 100% {
-                opacity: 1;
-                box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(139, 0, 0, 0.4);
+                box-shadow:
+                    0 0 40px rgba(99, 102, 241, 0.4),
+                    0 0 80px rgba(236, 72, 153, 0.3),
+                    0 10px 60px rgba(0, 0, 0, 0.5);
             }
             50% {
-                opacity: 0.9;
-                box-shadow: 0 0 60px rgba(212, 175, 55, 0.8), 0 0 100px rgba(139, 0, 0, 0.6);
+                box-shadow:
+                    0 0 60px rgba(99, 102, 241, 0.6),
+                    0 0 100px rgba(236, 72, 153, 0.4),
+                    0 15px 80px rgba(0, 0, 0, 0.6);
             }
         }
 
         @keyframes twinkle {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(0.95); }
-            75% { opacity: 0.85; transform: scale(0.98); }
+            50% { opacity: 0.8; transform: scale(0.96); }
         }
 
         @keyframes starFloat {
@@ -250,31 +302,57 @@
         }
 
         .animate-pulse {
-            animation: christmasGlow 2.5s infinite;
+            animation: modernGlow 3s infinite;
         }
 
         .twinkle {
-            animation: twinkle 3s infinite;
+            animation: twinkle 4s infinite;
         }
 
+        /* Glassmorphic Coin Container */
         .coin-container {
+            background: linear-gradient(135deg,
+                rgba(99, 102, 241, 0.1) 0%,
+                rgba(236, 72, 153, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow:
-                0 0 60px rgba(212, 175, 55, 0.5),
-                0 0 100px rgba(139, 0, 0, 0.3),
-                inset 0 0 80px rgba(212, 175, 55, 0.15);
-            background: radial-gradient(circle at center,
-                rgba(212, 175, 55, 0.2),
-                rgba(139, 69, 19, 0.15),
-                rgba(45, 24, 16, 0.95));
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 0 60px rgba(99, 102, 241, 0.1),
+                0 0 80px rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
+        .coin-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg,
+                var(--primary) 0%,
+                var(--secondary) 50%,
+                var(--accent) 100%);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .coin-container:hover::before {
+            opacity: 0.5;
+        }
+
+        /* Modern Gradient Text */
         .bg-gradient-text {
-            background: linear-gradient(135deg, #D4AF37, #8B0000, #FFD700, #228B22);
+            background: linear-gradient(135deg,
+                var(--primary-light) 0%,
+                var(--secondary-light) 50%,
+                var(--accent-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             background-size: 200% 200%;
-            animation: gradient-shift 4s ease infinite;
+            animation: gradient-shift 6s ease infinite;
         }
 
         @keyframes gradient-shift {
@@ -295,29 +373,100 @@
             animation: shimmer 12s ease-in-out infinite;
         }
 
-        /* Christmas glow effect - Gold, Red, Warm tones */
-        .patriotic-glow {
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7))
-                    drop-shadow(0 0 12px rgba(139, 0, 0, 0.5));
+        /* Modern glow effect */
+        .modern-glow {
+            filter:
+                drop-shadow(0 0 10px rgba(99, 102, 241, 0.5))
+                drop-shadow(0 0 20px rgba(236, 72, 153, 0.3));
         }
 
-        /* Magical text shadow - Gold, Red, Warm highlights */
+        /* Magical text shadow */
         .magical-text {
             text-shadow:
-                0 0 10px rgba(212, 175, 55, 0.8),
-                0 0 20px rgba(139, 0, 0, 0.6),
-                0 0 30px rgba(255, 215, 0, 0.4),
-                0 2px 4px rgba(0, 0, 0, 0.6);
+                0 0 20px rgba(99, 102, 241, 0.6),
+                0 0 40px rgba(236, 72, 153, 0.4),
+                0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Glassmorphic card effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: var(--surface-hover);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Modern button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 10px 40px rgba(99, 102, 241, 0.4),
+                0 0 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 12px 28px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            transform: translateY(-2px);
         }
 
         /* Hover micro-interactions */
         .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hover-lift:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            transform: translateY(-3px);
         }
 
         /* Pulse ring animation */
@@ -329,26 +478,26 @@
 <body>
     <div id="app">
         <!-- Loading Screen -->
-        <div id="loading" class="min-h-screen relative overflow-hidden" style="background: linear-gradient(to bottom, #1a0f0a 0%, #2d1810 50%, #1a0f0a 100%);">
+        <div id="loading" class="min-h-screen relative overflow-hidden">
             <div class="absolute inset-0">
                 <div id="particle-layer" class="shimmer"></div>
                 <div id="floating-particles"></div>
             </div>
             <div class="relative z-10 flex items-center justify-center min-h-screen">
-                <div class="text-center px-4">
-                    <div class="text-6xl mb-6 patriotic-glow">🎄</div>
-                    <div class="text-4xl mb-4 twinkle font-light tracking-wider magical-text" style="font-family: Georgia, serif; color: #D4AF37;">
-                        Magical Christmas Coin
-                    </div>
-                    <div class="text-lg italic mb-2" style="color: #FFD700;">
-                        "A cozy Christmas miracle awaits..."
-                    </div>
-                    <div class="text-sm text-gray-400 mb-8">
-                        🎅 Dare you flip the festive coin? 🦌
-                    </div>
+                <div class="text-center px-4 max-w-2xl mx-auto">
+                    <div class="text-7xl mb-8 modern-glow animate-pulse">✨</div>
+                    <h1 class="text-5xl md:text-6xl mb-6 font-bold bg-gradient-text" style="letter-spacing: -0.02em;">
+                        Coin of Fate
+                    </h1>
+                    <p class="text-xl mb-3 text-secondary-light font-medium">
+                        "When destiny calls for a decision..."
+                    </p>
+                    <p class="text-sm mb-12" style="color: var(--text-secondary);">
+                        Let the universe guide your choice
+                    </p>
                     <div class="mt-8">
-                        <button onclick="startApp()" class="px-8 py-3 border-2 hover:text-white transition-all duration-300 font-light tracking-wider patriotic-glow hover-lift" style="border-color: #D4AF37; color: #D4AF37; background: rgba(212, 175, 55, 0.1);">
-                            🎄 ENTER THE MAGIC 🎄
+                        <button onclick="startApp()" class="btn-primary text-lg px-12 py-4 relative z-10">
+                            <span class="relative z-10">Enter the Magic</span>
                         </button>
                     </div>
                 </div>
@@ -356,75 +505,42 @@
         </div>
 
         <!-- Main App -->
-        <div id="main-app" class="min-h-screen text-white relative overflow-hidden" style="display: none; background: linear-gradient(to bottom, #1a0f0a 0%, #2d1810 50%, #1a0f0a 100%);">
-            <!-- Background - Cozy Christmas Theme -->
-            <div class="absolute inset-0">
-                <!-- Wood paneling effect -->
-                <div class="absolute inset-0 opacity-30" style="background:
-                    repeating-linear-gradient(90deg, #5C4033 0px, #8B6F47 2px, #5C4033 4px, #8B6F47 6px, #5C4033 8px),
-                    linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(92, 64, 51, 0.2));
-                    background-size: 100% 100%;
-                "></div>
-
-                <!-- Christmas tree in background (left side) -->
-                <div class="absolute left-0 bottom-0 text-9xl opacity-20" style="font-size: 25rem; line-height: 1;">🎄</div>
-
-                <!-- Fireplace glow effect (bottom) -->
-                <div class="absolute bottom-0 left-0 right-0 h-64 shimmer" style="background: radial-gradient(ellipse at 50% 100%, rgba(212, 175, 55, 0.15) 0%, rgba(139, 0, 0, 0.08) 40%, transparent 70%);"></div>
-
-                <!-- Warm ambient lighting -->
-                <div class="absolute inset-0 opacity-25 magical-flow" style="
-                    background-image:
-                        radial-gradient(circle at 30% 70%, rgba(212,175,55,0.12) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(139,0,0,0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(255,215,0,0.06) 0%, transparent 40%);
-                    background-size: 450px 450px, 350px 350px, 500px 500px;
-                "></div>
-
-                <!-- Floating Christmas elements -->
-                <div class="absolute inset-0" id="floating-elements"></div>
-
-                <!-- Reindeer decorations (top corners) -->
-                <div class="absolute top-8 left-8 text-6xl opacity-40 twinkle">🦌</div>
-                <div class="absolute top-8 right-8 text-6xl opacity-40 twinkle" style="animation-delay: 1.5s; transform: scaleX(-1);">🦌</div>
-
-                <!-- Santa decoration (top center) -->
-                <div class="absolute top-4 left-1/2 transform -translate-x-1/2 text-5xl opacity-30 particle">🎅</div>
-            </div>
+        <div id="main-app" class="min-h-screen relative overflow-hidden" style="display: none;">
+            <!-- Floating particles background -->
+            <div class="absolute inset-0" id="floating-elements"></div>
 
             <!-- Header -->
-            <div class="relative text-center py-16 px-4" style="border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                <div class="flex items-center justify-center gap-4 mb-8">
-                    <div class="w-12 h-12 flex items-center justify-center text-4xl star">🎄</div>
-                    <div class="text-center">
-                        <h1 class="text-6xl font-bold tracking-widest bg-gradient-text mb-2 magical-text" style="font-family: Georgia, serif;">
-                            CHRISTMAS COIN
-                        </h1>
-                        <div class="text-lg italic font-light tracking-wider twinkle" style="font-family: Georgia, serif; color: #FFD700;">
-                            "A cozy Christmas miracle..."
+            <div class="relative text-center py-20 px-4 mb-12">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex items-center justify-center gap-6 mb-8">
+                        <div class="w-12 h-12 flex items-center justify-center text-4xl modern-glow star">✨</div>
+                        <div class="text-center">
+                            <h1 class="text-5xl md:text-7xl font-bold bg-gradient-text mb-3" style="letter-spacing: -0.02em;">
+                                COIN OF FATE
+                            </h1>
+                            <p class="text-lg md:text-xl font-medium" style="color: var(--text-secondary);">
+                                Let destiny make the call
+                            </p>
                         </div>
-                        <div class="text-sm mt-2" style="color: #D4AF37;">
-                            🎅 Let the festive spirit decide 🦌
-                        </div>
+                        <div class="w-12 h-12 flex items-center justify-center text-4xl modern-glow star" style="animation-delay: 2s;">🔮</div>
                     </div>
-                    <div class="w-12 h-12 flex items-center justify-center text-4xl star" style="animation-delay: 2s;">🎁</div>
-                </div>
 
-                <div id="premium-badge" class="inline-flex items-center gap-2 px-4 py-2 border rounded patriotic-glow" style="display: none; border-color: rgba(212, 175, 55, 0.5); background: rgba(139, 0, 0, 0.2);">
-                    <span>🎄</span>
-                    <span class="text-sm tracking-wide font-light" style="color: #FFD700;">CHRISTMAS PREMIUM</span>
+                    <div id="premium-badge" class="inline-flex items-center gap-2 px-5 py-2.5 glass-card" style="display: none;">
+                        <span>⚡</span>
+                        <span class="text-sm font-semibold bg-gradient-text">PREMIUM</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Quote Section -->
-            <div id="quote-section" class="relative py-12 px-6" style="border-bottom: 1px solid rgba(212, 175, 55, 0.15);">
-                <div class="max-w-2xl mx-auto text-center">
-                    <div class="text-4xl mb-4 twinkle">🎄</div>
-                    <p id="current-quote" class="text-xl italic leading-relaxed font-light twinkle" style="font-family: Georgia, serif; color: #FFD700;">
-                        "The Christmas spirit whispers your fortune..."
+            <div id="quote-section" class="relative py-12 px-6 mb-12">
+                <div class="max-w-3xl mx-auto text-center glass-card p-8">
+                    <div class="text-4xl mb-4 modern-glow">✨</div>
+                    <p id="current-quote" class="text-2xl md:text-3xl font-medium leading-relaxed mb-4" style="color: var(--text-primary);">
+                        "The universe whispers your fortune..."
                     </p>
-                    <p id="quote-translation" class="text-sm mt-3 tracking-wider font-light" style="color: #D4AF37;">
-                        What festive destiny awaits?
+                    <p id="quote-translation" class="text-base" style="color: var(--text-secondary);">
+                        What destiny awaits?
                     </p>
                 </div>
             </div>
@@ -449,7 +565,7 @@
 
                         <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                             <!-- Option 1 -->
-                            <div class="border rounded p-6 patriotic-glow" style="border-color: rgba(212, 175, 55, 0.3); background: rgba(139, 69, 19, 0.1);">
+                            <div class="glass-card p-6">
                                 <label class="block text-sm font-light mb-2 tracking-wider" style="color: #D4AF37;">OPTION 1 (HEADS)</label>
                                 <input type="text" id="custom-option1-text" placeholder="e.g., Pizza, Attack Dragon" maxlength="20" class="w-full px-4 py-2 mb-3 border rounded font-light" style="background: rgba(26, 15, 10, 0.8); border-color: rgba(212, 175, 55, 0.3); color: #FFD700;" />
                                 <label class="block text-sm font-light mb-2 tracking-wider" style="color: #D4AF37;">EMOJI (OPTIONAL)</label>
@@ -457,7 +573,7 @@
                             </div>
 
                             <!-- Option 2 -->
-                            <div class="border rounded p-6 patriotic-glow" style="border-color: rgba(139, 0, 0, 0.4); background: rgba(139, 0, 0, 0.1);">
+                            <div class="glass-card p-6">
                                 <label class="block text-sm font-light mb-2 tracking-wider" style="color: #D4AF37;">OPTION 2 (TAILS)</label>
                                 <input type="text" id="custom-option2-text" placeholder="e.g., Tacos, Run Away" maxlength="20" class="w-full px-4 py-2 mb-3 border rounded font-light" style="background: rgba(26, 15, 10, 0.8); border-color: rgba(139, 0, 0, 0.4); color: #FF6B6B;" />
                                 <label class="block text-sm font-light mb-2 tracking-wider" style="color: #D4AF37;">EMOJI (OPTIONAL)</label>
@@ -490,7 +606,7 @@
                         </p>
                     </div>
 
-                    <div class="border rounded-lg p-8 patriotic-glow" style="border-color: rgba(212, 175, 55, 0.3); background: rgba(139, 69, 19, 0.1);">
+                    <div class="glass-card p-8">
                         <!-- Progress Bar -->
                         <div class="mb-6">
                             <div class="flex justify-between mb-2 text-sm font-light">
@@ -521,7 +637,7 @@
                         </div>
 
                         <!-- World Event -->
-                        <div id="world-event" class="hidden mt-6 p-4 border-2 rounded text-center patriotic-glow animate-pulse" style="border-color: #FFD700; background: rgba(212, 175, 55, 0.2);">
+                        <div id="world-event" class="hidden mt-6 glass-card p-6 text-center border-2 animate-pulse" style="border-color: var(--accent);">
                             <div class="text-3xl mb-2">🎉</div>
                             <p class="font-light" style="color: #FFD700;">WORLD EVENT UNLOCKED!</p>
                             <p class="text-xs mt-1" style="color: #D4AF37;" id="world-event-text"></p>
@@ -590,60 +706,60 @@
             </div>
 
             <!-- Main Coin Section -->
-            <div class="relative max-w-lg mx-auto px-6 py-16">
+            <div class="relative max-w-2xl mx-auto px-6 py-16">
                 <!-- Coin -->
                 <div class="flex justify-center mb-16">
                     <div class="relative">
-                        <div id="coin" class="w-64 h-64 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-2500 hover:scale-105 coin-container animate-pulse hover-lift" style="border: 4px solid #D4AF37;">
-                            <div id="coin-content" class="text-center">
-                                <div class="text-8xl mb-4 patriotic-glow">🎄</div>
-                                <div class="text-lg tracking-wider font-light magical-text" style="color: #FFD700;">READY FOR MAGIC</div>
+                        <div id="coin" class="w-72 h-72 md:w-80 md:h-80 rounded-full flex items-center justify-center transform transition-all duration-2500 hover:scale-105 coin-container animate-pulse hover-lift">
+                            <div id="coin-content" class="text-center relative z-10">
+                                <div class="text-9xl mb-4 modern-glow">⚡</div>
+                                <div class="text-lg font-semibold" style="color: var(--text-primary);">READY</div>
                             </div>
                         </div>
 
-                        <!-- Magical glow rings - Gold, Red, Green -->
-                        <div class="absolute inset-0 rounded-full border scale-110 pulse-ring" style="border-color: rgba(212, 175, 55, 0.5);"></div>
-                        <div class="absolute inset-0 rounded-full border scale-125 pulse-ring" style="border-color: rgba(139, 0, 0, 0.3); animation-delay: 0.7s;"></div>
-                        <div class="absolute inset-0 rounded-full border scale-140 pulse-ring" style="border-color: rgba(34, 139, 34, 0.2); animation-delay: 1.4s;"></div>
+                        <!-- Modern glow rings -->
+                        <div class="absolute inset-0 rounded-full border-2 scale-110 pulse-ring" style="border-color: rgba(99, 102, 241, 0.4);"></div>
+                        <div class="absolute inset-0 rounded-full border-2 scale-125 pulse-ring" style="border-color: rgba(236, 72, 153, 0.3); animation-delay: 0.7s;"></div>
+                        <div class="absolute inset-0 rounded-full border scale-140 pulse-ring" style="border-color: rgba(245, 158, 11, 0.2); animation-delay: 1.4s;"></div>
 
-                        <!-- Floating Christmas particles around coin -->
-                        <div class="absolute -left-12 top-1/4 text-3xl particle" style="animation-delay: 0.5s;">🎁</div>
-                        <div class="absolute -right-12 top-1/3 text-3xl particle" style="animation-delay: 1.5s;">❄️</div>
-                        <div class="absolute -left-8 bottom-1/4 text-2xl star" style="animation-delay: 2.5s;">⛄</div>
-                        <div class="absolute -right-8 bottom-1/3 text-2xl star" style="animation-delay: 3.5s;">🔔</div>
+                        <!-- Floating particles around coin -->
+                        <div class="absolute -left-12 top-1/4 text-4xl modern-glow particle" style="animation-delay: 0.5s;">✨</div>
+                        <div class="absolute -right-12 top-1/3 text-4xl modern-glow particle" style="animation-delay: 1.5s;">💫</div>
+                        <div class="absolute -left-8 bottom-1/4 text-3xl modern-glow star" style="animation-delay: 2.5s;">⭐</div>
+                        <div class="absolute -right-8 bottom-1/3 text-3xl modern-glow star" style="animation-delay: 3.5s;">🌟</div>
                     </div>
                 </div>
 
                 <!-- Flip Button -->
-                <div class="text-center mb-12">
-                    <button id="flip-btn" onclick="flipCoin()" class="px-16 py-5 border-2 hover:text-white hover:border-transparent transition-all duration-300 font-bold tracking-widest text-xl transform hover:scale-105 patriotic-glow magical-text hover-lift" style="font-family: Georgia, serif; border-color: #D4AF37; color: #FFD700; background: linear-gradient(to right, rgba(212, 175, 55, 0.1), rgba(139, 0, 0, 0.1));">
-                        🎄 DISCOVER YOUR FATE 🎅
+                <div class="text-center mb-16">
+                    <button id="flip-btn" onclick="flipCoin()" class="btn-primary text-xl px-20 py-6 text-lg font-bold tracking-wide">
+                        <span class="relative z-10">FLIP THE COIN</span>
                     </button>
                 </div>
 
                 <!-- Stats -->
-                <div class="grid grid-cols-3 gap-6 mb-12">
-                    <div class="text-center p-6 border rounded patriotic-glow hover-lift" style="border-color: rgba(212, 175, 55, 0.3); background: rgba(139, 69, 19, 0.15);">
-                        <div class="text-3xl mb-2 twinkle">🎄</div>
-                        <div id="total-count" class="text-4xl font-bold mb-2 magical-text" style="font-family: Georgia, serif; color: #FFD700;">0</div>
-                        <div class="text-xs tracking-wider font-light" style="color: #D4AF37;">FLIPS</div>
+                <div class="grid grid-cols-3 gap-4 md:gap-6 mb-12">
+                    <div class="glass-card text-center p-6 hover-lift">
+                        <div class="text-3xl mb-3 modern-glow">📊</div>
+                        <div id="total-count" class="text-4xl font-bold mb-2 bg-gradient-text">0</div>
+                        <div class="text-xs font-semibold tracking-wider" style="color: var(--text-secondary);">TOTAL FLIPS</div>
                     </div>
-                    <div class="text-center p-6 border rounded patriotic-glow hover-lift" style="border-color: rgba(212, 175, 55, 0.3); background: rgba(139, 69, 19, 0.15);">
-                        <div class="text-3xl mb-2 twinkle">🎅</div>
-                        <div id="heads-count" class="text-4xl font-bold mb-2 magical-text" style="font-family: Georgia, serif; color: #FFD700;">0</div>
-                        <div class="text-xs tracking-wider font-light" style="color: #D4AF37;">HEADS</div>
+                    <div class="glass-card text-center p-6 hover-lift">
+                        <div class="text-3xl mb-3 modern-glow">🌟</div>
+                        <div id="heads-count" class="text-4xl font-bold mb-2" style="color: var(--primary-light);">0</div>
+                        <div class="text-xs font-semibold tracking-wider" style="color: var(--text-secondary);">HEADS</div>
                     </div>
-                    <div class="text-center p-6 border rounded patriotic-glow hover-lift" style="border-color: rgba(139, 0, 0, 0.4); background: rgba(139, 0, 0, 0.15);">
-                        <div class="text-3xl mb-2 twinkle">🦌</div>
-                        <div id="tails-count" class="text-4xl font-bold mb-2 magical-text" style="font-family: Georgia, serif; color: #FF6B6B;">0</div>
-                        <div class="text-xs tracking-wider font-light" style="color: #D4AF37;">TAILS</div>
+                    <div class="glass-card text-center p-6 hover-lift">
+                        <div class="text-3xl mb-3 modern-glow">💫</div>
+                        <div id="tails-count" class="text-4xl font-bold mb-2" style="color: var(--secondary-light);">0</div>
+                        <div class="text-xs font-semibold tracking-wider" style="color: var(--text-secondary);">TAILS</div>
                     </div>
                 </div>
 
                 <!-- History -->
                 <div id="history-section" class="mb-12" style="display: none;">
-                    <h3 class="text-center text-lg font-light mb-6 tracking-wider twinkle" style="font-family: Georgia, serif; color: #FFD700;">
-                        🎄 Christmas Chronicle 🎄
+                    <h3 class="text-center text-lg font-semibold mb-6" style="color: var(--text-primary);">
+                        Recent Flips
                     </h3>
                     <div class="flex justify-center">
                         <div id="history-display" class="flex gap-3"></div>
@@ -651,60 +767,63 @@
                 </div>
 
                 <!-- Free Limit Warning -->
-                <div id="limit-warning" class="mb-8 p-4 border-2 text-center rounded patriotic-glow" style="display: none; border-color: rgba(212, 175, 55, 0.6); background: rgba(139, 69, 19, 0.3);">
-                    <div class="text-3xl mb-2">🎅</div>
-                    <p class="text-sm font-light" style="color: #FFD700;">
-                        The Christmas magic is fading... <span id="remaining-flips">2</span> flips remaining!
+                <div id="limit-warning" class="mb-8 glass-card p-6 text-center border-2" style="display: none; border-color: var(--accent);">
+                    <div class="text-4xl mb-3">⚠️</div>
+                    <p class="text-base font-medium mb-2" style="color: var(--text-primary);">
+                        <span id="remaining-flips">2</span> flips remaining
+                    </p>
+                    <p class="text-sm" style="color: var(--text-secondary);">
+                        Upgrade to Premium for unlimited flips!
                     </p>
                 </div>
 
                 <!-- Reset Button -->
                 <div class="text-center">
-                    <button onclick="resetApp()" class="px-10 py-3 border transition-all duration-300 font-light tracking-wider hover-lift" style="font-family: Georgia, serif; border-color: rgba(139, 69, 19, 0.5); color: #D4AF37;">
-                        🎄 RESET MAGIC 🎄
+                    <button onclick="resetApp()" class="btn-secondary px-10 py-3">
+                        Reset
                     </button>
                 </div>
             </div>
 
             <!-- Subscription Modal -->
-            <div id="subscription-modal" class="fixed inset-0 flex items-center justify-center p-4" style="display: none; background: rgba(26, 15, 10, 0.95);">
-                <div class="border-2 p-8 max-w-md w-full text-center relative rounded patriotic-glow" style="background: linear-gradient(to bottom right, rgba(139, 69, 19, 0.3), rgba(26, 15, 10, 0.9), rgba(139, 0, 0, 0.2)); border-color: #D4AF37;">
-                    <div class="absolute inset-0 rounded" style="background: rgba(212, 175, 55, 0.05);"></div>
+            <div id="subscription-modal" class="fixed inset-0 flex items-center justify-center p-4 z-50" style="display: none; background: rgba(7, 7, 13, 0.95); backdrop-filter: blur(10px);">
+                <div class="glass-card p-10 max-w-md w-full text-center relative border-2" style="border-color: var(--primary);">
                     <div class="relative z-10">
-                        <div class="mb-6">
-                            <div class="text-6xl mx-auto mb-6 twinkle">🎄</div>
-                            <h2 class="text-3xl font-bold mb-4 tracking-wider magical-text" style="font-family: Georgia, serif; color: #FFD700;">
-                                Infinite Christmas Magic
+                        <div class="mb-8">
+                            <div class="text-6xl mx-auto mb-6 modern-glow animate-pulse">⚡</div>
+                            <h2 class="text-3xl font-bold mb-4 bg-gradient-text">
+                                Unlock Unlimited Power
                             </h2>
-                            <p class="leading-relaxed font-light" style="color: #D4AF37;">
-                                Unlimited festive flips await you this holiday season...
+                            <p class="leading-relaxed" style="color: var(--text-secondary);">
+                                Unlimited flips, exclusive features, and more...
                             </p>
                         </div>
 
-                        <div class="border-2 p-6 mb-8 rounded patriotic-glow" style="border-color: rgba(212, 175, 55, 0.5); background: rgba(139, 69, 19, 0.2);">
-                            <div class="text-4xl font-bold mb-4 magical-text" style="font-family: Georgia, serif; color: #FFD700;">$2.99/month</div>
-                            <div class="space-y-3 text-sm font-light" style="color: #D4AF37;">
+                        <div class="glass-card p-6 mb-8 border-2" style="border-color: var(--primary);">
+                            <div class="text-5xl font-bold mb-4 bg-gradient-text">$2.99</div>
+                            <div class="text-sm mb-6" style="color: var(--text-secondary);">per month</div>
+                            <div class="space-y-4 text-sm font-medium" style="color: var(--text-primary);">
                                 <div class="flex items-center justify-center gap-3">
-                                    <span>♾️</span>
-                                    <span>Unlimited Christmas flips</span>
+                                    <span class="modern-glow">♾️</span>
+                                    <span>Unlimited flips</span>
                                 </div>
                                 <div class="flex items-center justify-center gap-3">
-                                    <span>🎄</span>
-                                    <span>Christmas Premium badge</span>
+                                    <span class="modern-glow">⚡</span>
+                                    <span>Premium badge</span>
                                 </div>
                                 <div class="flex items-center justify-center gap-3">
-                                    <span>🔔</span>
-                                    <span>Exclusive festive sound effects</span>
+                                    <span class="modern-glow">🎵</span>
+                                    <span>Exclusive sound effects</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="space-y-4">
-                            <button onclick="buyPremium()" class="w-full py-3 text-white transition-all duration-300 font-bold tracking-wider patriotic-glow hover-lift" style="font-family: Georgia, serif; background: linear-gradient(to right, #D4AF37, #8B0000);">
-                                🎅 UNLOCK UNLIMITED MAGIC 🎄
+                            <button onclick="buyPremium()" class="btn-primary w-full py-4 text-lg">
+                                <span class="relative z-10">Upgrade Now</span>
                             </button>
-                            <button onclick="closeModal()" class="w-full py-3 border transition-all duration-300 font-light tracking-wider hover-lift" style="font-family: Georgia, serif; border-color: rgba(139, 69, 19, 0.6); color: #D4AF37;">
-                                MAYBE LATER
+                            <button onclick="closeModal()" class="btn-secondary w-full py-3">
+                                Maybe Later
                             </button>
                         </div>
                     </div>
@@ -712,18 +831,24 @@
             </div>
 
             <!-- Footer -->
-            <div class="relative py-8 text-center" style="border-top: 1px solid rgba(212, 175, 55, 0.2);">
-                <div class="space-y-3 text-xs font-light">
-                    <div class="flex justify-center gap-4 text-2xl mb-4">
-                        <span class="star">🎄</span>
-                        <span class="particle" style="animation-delay: 0.5s;">🎅</span>
-                        <span class="star" style="animation-delay: 1s;">🦌</span>
-                        <span class="particle" style="animation-delay: 1.5s;">🎁</span>
-                        <span class="star" style="animation-delay: 2s;">⛄</span>
+            <div class="relative py-12 text-center mt-20">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="flex justify-center gap-6 text-3xl mb-6">
+                        <span class="modern-glow star">✨</span>
+                        <span class="modern-glow particle" style="animation-delay: 0.5s;">💫</span>
+                        <span class="modern-glow star" style="animation-delay: 1s;">⭐</span>
+                        <span class="modern-glow particle" style="animation-delay: 1.5s;">🌟</span>
+                        <span class="modern-glow star" style="animation-delay: 2s;">⚡</span>
                     </div>
-                    <p style="color: rgba(212, 175, 55, 0.7);">Powered by Magical Markov Chain Probability</p>
-                    <p style="font-family: Georgia, serif; color: #D4AF37;" class="italic">"In this cozy Christmas season, your destiny awaits..."</p>
-                    <p class="text-xs" style="color: #8B6F47;">Made with festive Christmas magic 🎄</p>
+                    <p class="text-sm font-medium" style="color: var(--text-secondary);">
+                        Powered by Markov Chain Probability
+                    </p>
+                    <p class="text-base italic font-medium bg-gradient-text">
+                        "Let the universe decide your destiny"
+                    </p>
+                    <p class="text-xs mt-6" style="color: var(--text-muted);">
+                        Made with magic & code
+                    </p>
                 </div>
             </div>
         </div>
@@ -767,8 +892,8 @@
         // Custom options
         let customOptions = {
             enabled: false,
-            option1: { text: 'Trick', emoji: '🎃' },
-            option2: { text: 'Treat', emoji: '🍬' }
+            option1: { text: 'Heads', emoji: '🌟' },
+            option2: { text: 'Tails', emoji: '💫' }
         };
 
         const markovMatrix = {
@@ -776,20 +901,20 @@
             'T': { 'H': 0.55, 'T': 0.45 }
         };
 
-        // Christmas magical quotes
+        // Magical quotes
         const magicalQuotes = [
-            "The Christmas spirit has spoken... believe in festive wonder|Your fate twinkles like holiday lights",
-            "Embrace the cozy wonder... Christmas miracles await|The season reveals joyful truths",
-            "The warmth of Christmas grows strong|What festive destiny brings beckons you",
-            "Ancient holiday magic guides your path|The Christmas realm calls",
-            "By firelight and tree glow, truth is revealed|Your fortune awaits in warmth",
-            "The magical Christmas coin knows your fate|Festive powers at work",
-            "Snowflakes dance in the moonlight|Your destiny is written in holiday cheer",
-            "The Christmas realm has chosen|Cozy energies surround you",
-            "Embrace what the season brings|Fortune favors festive souls",
-            "The carolers' voices sing out|Your path is illuminated by Christmas lights",
-            "Holiday destiny awaits your choice|Santa's magic decides your fortune",
-            "Eternal Christmas magic guides the coin|Festive forces align"
+            "The universe has spoken... destiny reveals itself|Your fate is written in the stars",
+            "Embrace the cosmic wonder... miracles await|The universe reveals hidden truths",
+            "The power of fate grows strong|What destiny brings beckons you",
+            "Ancient magic guides your path|The cosmos calls to you",
+            "In starlight and cosmic glow, truth is revealed|Your fortune awaits in wonder",
+            "The magical coin knows your fate|Mystical powers at work",
+            "Stardust dances in the moonlight|Your destiny is written in cosmic energy",
+            "The universe has chosen|Divine energies surround you",
+            "Embrace what fate brings|Fortune favors brave souls",
+            "The cosmos whispers your name|Your path is illuminated by starlight",
+            "Destiny awaits your choice|The universe decides your fortune",
+            "Eternal magic guides the coin|Cosmic forces align"
         ];
 
         // Sound effects (using Web Audio API for festive sounds)
@@ -1132,7 +1257,7 @@
                     : (customOptions.enabled ? customOptions.option2.text.toUpperCase() + '!' : 'TAILS!');
 
                 coinContent.innerHTML = `
-                    <div class="text-9xl mb-3 patriotic-glow">${displayEmoji}</div>
+                    <div class="text-9xl mb-3 modern-glow">${displayEmoji}</div>
                     <div class="text-2xl tracking-wider font-bold magical-text" style="color: ${isHeads ? '#FFD700' : '#FF6B6B'};">${displayText}</div>
                 `;
 
@@ -1224,7 +1349,7 @@
 
             // Update coin display
             document.getElementById('coin-content').innerHTML = `
-                <div class="text-8xl mb-4 patriotic-glow">${customOptions.option1.emoji}</div>
+                <div class="text-9xl mb-4 modern-glow">${customOptions.option1.emoji}</div>
                 <div class="text-lg tracking-wider font-light magical-text" style="color: #FFD700;">READY FOR MAGIC</div>
             `;
         }
@@ -1232,8 +1357,8 @@
         function resetToDefault() {
             customOptions = {
                 enabled: false,
-                option1: { text: 'Heads', emoji: '🎅' },
-                option2: { text: 'Tails', emoji: '🦌' }
+                option1: { text: 'Heads', emoji: '🌟' },
+                option2: { text: 'Tails', emoji: '💫' }
             };
 
             // Clear from localStorage
@@ -1264,8 +1389,8 @@
 
                     // Update coin display
                     document.getElementById('coin-content').innerHTML = `
-                        <div class="text-8xl mb-4 patriotic-glow">${customOptions.option1.emoji}</div>
-                        <div class="text-lg tracking-wider font-light magical-text" style="color: #FFD700;">READY FOR MAGIC</div>
+                        <div class="text-9xl mb-4 modern-glow">${customOptions.option1.emoji}</div>
+                        <div class="text-lg font-semibold" style="color: var(--text-primary);">READY</div>
                     `;
                 }
             }
@@ -1305,12 +1430,12 @@
 
             coin.classList.add('animate-spin');
             coin.style.transform = 'scale(1.2)';
-            flipBtn.textContent = '🎄 MAGIC IN PROGRESS... 🎄';
+            flipBtn.innerHTML = '<span class="relative z-10">FLIPPING...</span>';
             flipBtn.disabled = true;
 
             coinContent.innerHTML = `
-                <div class="text-9xl animate-pulse mb-4 patriotic-glow">⛄</div>
-                <div class="text-lg tracking-wider font-light animate-pulse magical-text" style="color: #FFD700;">FATE DECIDING...</div>
+                <div class="text-9xl animate-pulse mb-4 modern-glow">🌀</div>
+                <div class="text-lg font-semibold animate-pulse" style="color: var(--text-primary);">DECIDING...</div>
             `;
 
             // Create particle effects during spin
@@ -1356,7 +1481,7 @@
                     : (customOptions.enabled ? customOptions.option2.text.toUpperCase() + '!' : 'TAILS!');
 
                 coinContent.innerHTML = `
-                    <div class="text-9xl mb-3 patriotic-glow">${displayEmoji}</div>
+                    <div class="text-9xl mb-3 modern-glow">${displayEmoji}</div>
                     <div class="text-2xl tracking-wider font-bold magical-text" style="color: ${isHeads ? '#FFD700' : '#FF6B6B'};">${displayText}</div>
                 `;
 
@@ -1365,7 +1490,7 @@
                 updateQuote();
                 checkLimit();
 
-                flipBtn.textContent = '🎄 DISCOVER YOUR FATE 🎅';
+                flipBtn.innerHTML = '<span class="relative z-10">FLIP THE COIN</span>';
                 flipBtn.disabled = false;
                 isFlipping = false;
             }, 2500);
@@ -1397,12 +1522,12 @@
 
                     // Use custom emoji if enabled
                     const emoji = isHeads
-                        ? (customOptions.enabled ? customOptions.option1.emoji : '🎅')
-                        : (customOptions.enabled ? customOptions.option2.emoji : '🦌');
+                        ? (customOptions.enabled ? customOptions.option1.emoji : '🌟')
+                        : (customOptions.enabled ? customOptions.option2.emoji : '💫');
 
-                    element.className = `w-12 h-12 rounded-full border-2 flex items-center justify-center text-2xl transition-all hover:scale-110 patriotic-glow`;
-                    element.style.background = isHeads ? 'rgba(212, 175, 55, 0.4)' : 'rgba(139, 0, 0, 0.4)';
-                    element.style.borderColor = isHeads ? '#D4AF37' : '#8B0000';
+                    element.className = `w-12 h-12 rounded-full border-2 flex items-center justify-center text-2xl transition-all hover:scale-110 glass-card`;
+                    element.style.background = isHeads ? 'rgba(99, 102, 241, 0.2)' : 'rgba(236, 72, 153, 0.2)';
+                    element.style.borderColor = isHeads ? 'var(--primary)' : 'var(--secondary)';
                     element.textContent = emoji;
                     historyDisplay.appendChild(element);
                 });
@@ -1439,8 +1564,8 @@
             markovState = 'H';
 
             document.getElementById('coin-content').innerHTML = `
-                <div class="text-8xl mb-4 patriotic-glow">🎄</div>
-                <div class="text-lg tracking-wider font-light magical-text" style="color: #FFD700;">READY FOR MAGIC</div>
+                <div class="text-9xl mb-4 modern-glow">⚡</div>
+                <div class="text-lg font-semibold" style="color: var(--text-primary);">READY</div>
             `;
 
             updateStats();
