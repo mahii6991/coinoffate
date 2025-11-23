@@ -825,6 +825,225 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--cyan-glow);
         }
+
+        /* ========================================
+           MODAL/OVERLAY STYLES
+           ======================================== */
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #0a0a0a 100%);
+            border: var(--panel-border) solid var(--pink-burst);
+            box-shadow:
+                0 0 0 4px var(--deep-black),
+                0 0 0 8px var(--cyan-glow),
+                0 30px 60px rgba(0, 0, 0, 0.9);
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: 'Passion One', cursive;
+            font-size: 2rem;
+            color: var(--pink-burst);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--yellow-flash);
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        .modal-title {
+            font-family: 'Passion One', cursive;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--yellow-flash);
+            margin-bottom: 1.5rem;
+            text-shadow:
+                2px 2px 0 var(--deep-black),
+                4px 4px 0 var(--pink-burst);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--cyan-glow);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--cyan-glow);
+            color: var(--yellow-flash);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--pink-burst);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .example-chip {
+            padding: 0.8rem 1rem;
+            background: rgba(255, 0, 110, 0.2);
+            border: 2px solid var(--pink-burst);
+            color: var(--cyan-glow);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .example-chip:hover {
+            background: var(--pink-burst);
+            color: var(--yellow-flash);
+            transform: scale(1.05);
+        }
+
+        .flip-result-display {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(0, 255, 249, 0.1);
+            border: 3px solid var(--cyan-glow);
+            text-align: center;
+        }
+
+        .flip-result-text {
+            font-family: 'Passion One', cursive;
+            font-size: 3rem;
+            color: var(--yellow-flash);
+            text-shadow:
+                2px 2px 0 var(--deep-black),
+                4px 4px 0 var(--pink-burst);
+        }
+
+        .room-info {
+            background: rgba(131, 56, 236, 0.2);
+            border: 2px solid var(--purple-portal);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .room-code {
+            font-family: 'Passion One', cursive;
+            font-size: 2rem;
+            color: var(--yellow-flash);
+            text-align: center;
+            letter-spacing: 0.2em;
+        }
+
+        .participants-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .participant-item {
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            margin: 0.5rem 0;
+            color: var(--cyan-glow);
+            border-left: 3px solid var(--pink-burst);
+        }
+
+        .stats-display {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--cyan-glow);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-box-number {
+            font-family: 'Passion One', cursive;
+            font-size: 2.5rem;
+            color: var(--yellow-flash);
+            text-shadow: 2px 2px 0 var(--pink-burst);
+        }
+
+        .stat-box-label {
+            font-size: 0.9rem;
+            color: var(--cyan-glow);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -867,7 +1086,7 @@
         <h2 class="section-title">MULTIVERSE FEATURES</h2>
 
         <div class="panels-grid">
-            <div class="feature-panel comic-panel">
+            <div class="feature-panel comic-panel" id="customChaosPanel" style="cursor: pointer;">
                 <div class="feature-icon" aria-hidden="true">🧪</div>
                 <h3 class="feature-title">CUSTOM CHAOS</h3>
                 <p class="feature-text">
@@ -876,7 +1095,7 @@
                 </p>
             </div>
 
-            <div class="feature-panel comic-panel">
+            <div class="feature-panel comic-panel" id="seanceModePanel" style="cursor: pointer;">
                 <div class="feature-icon" aria-hidden="true">🔮</div>
                 <h3 class="feature-title">SÉANCE MODE</h3>
                 <p class="feature-text">
@@ -885,7 +1104,7 @@
                 </p>
             </div>
 
-            <div class="feature-panel comic-panel">
+            <div class="feature-panel comic-panel" id="doomBarometerPanel" style="cursor: pointer;">
                 <div class="feature-icon" aria-hidden="true">📉</div>
                 <h3 class="feature-title">DOOM BAROMETER</h3>
                 <p class="feature-text">
@@ -941,6 +1160,141 @@
         </div>
     </section>
 
+    <!-- Modal: Custom Chaos -->
+    <div id="customChaosModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('customChaosModal')">×</button>
+            <h2 class="modal-title">🧪 CUSTOM CHAOS</h2>
+
+            <div class="input-group">
+                <label class="input-label">Option 1</label>
+                <input type="text" id="customOption1" class="input-field" placeholder="e.g., Pikachu">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Option 2</label>
+                <input type="text" id="customOption2" class="input-field" placeholder="e.g., Charizard">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Pokemon Battle Examples (Click to use)</label>
+                <div class="examples-grid">
+                    <div class="example-chip" onclick="setCustomOptions('Pikachu', 'Charizard')">Pikachu vs Charizard</div>
+                    <div class="example-chip" onclick="setCustomOptions('Bulbasaur', 'Squirtle')">Bulbasaur vs Squirtle</div>
+                    <div class="example-chip" onclick="setCustomOptions('Mewtwo', 'Mew')">Mewtwo vs Mew</div>
+                    <div class="example-chip" onclick="setCustomOptions('Gengar', 'Alakazam')">Gengar vs Alakazam</div>
+                    <div class="example-chip" onclick="setCustomOptions('Dragonite', 'Gyarados')">Dragonite vs Gyarados</div>
+                    <div class="example-chip" onclick="setCustomOptions('Eevee', 'Ditto')">Eevee vs Ditto</div>
+                    <div class="example-chip" onclick="setCustomOptions('Snorlax', 'Machamp')">Snorlax vs Machamp</div>
+                    <div class="example-chip" onclick="setCustomOptions('Articuno', 'Zapdos')">Articuno vs Zapdos</div>
+                </div>
+            </div>
+
+            <button class="burst-button" onclick="flipCustomCoin()" style="width: 100%; margin-top: 1rem;">
+                🎲 FLIP THE CHAOS! 🎲
+            </button>
+
+            <div id="customFlipResult" class="flip-result-display" style="display: none;">
+                <div class="flip-result-text" id="customResultText"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Seance Mode -->
+    <div id="seanceModeModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('seanceModeModal')">×</button>
+            <h2 class="modal-title">🔮 SÉANCE MODE</h2>
+
+            <p class="feature-text mb-2">Create a room and invite your friends to flip together!</p>
+
+            <div class="input-group">
+                <label class="input-label">Your Name</label>
+                <input type="text" id="userName" class="input-field" placeholder="Enter your name">
+            </div>
+
+            <button class="burst-button" onclick="createRoom()" style="width: 100%; margin-bottom: 1rem;">
+                ✨ CREATE ROOM ✨
+            </button>
+
+            <div class="input-group">
+                <label class="input-label">Or Join Existing Room</label>
+                <input type="text" id="roomCodeInput" class="input-field" placeholder="Enter room code">
+            </div>
+
+            <button class="burst-button" onclick="joinRoom()" style="width: 100%;">
+                🚪 JOIN ROOM 🚪
+            </button>
+
+            <div id="roomInfo" class="room-info" style="display: none;">
+                <div class="modal-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Room Created!</div>
+                <div class="room-code" id="roomCodeDisplay"></div>
+                <p class="feature-text text-center mt-1">Share this code with your friends!</p>
+
+                <div class="input-group mt-2">
+                    <label class="input-label">Participants</label>
+                    <ul class="participants-list" id="participantsList"></ul>
+                </div>
+
+                <button class="burst-button" onclick="roomFlip()" style="width: 100%; margin-top: 1rem;">
+                    🎲 FLIP TOGETHER! 🎲
+                </button>
+
+                <div id="roomFlipResult" class="flip-result-display" style="display: none; margin-top: 1rem;">
+                    <div class="flip-result-text" id="roomResultText"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Doom Barometer -->
+    <div id="doomBarometerModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('doomBarometerModal')">×</button>
+            <h2 class="modal-title">📉 DOOM BAROMETER</h2>
+
+            <p class="feature-text mb-2 text-center">
+                Witness humanity's collective fate! These are the global statistics from all players worldwide.
+            </p>
+
+            <div class="stats-display">
+                <div class="stat-box">
+                    <div class="stat-box-number" id="globalTotalFlips">0</div>
+                    <div class="stat-box-label">Total Global Flips</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-box-number" id="globalHeads">0</div>
+                    <div class="stat-box-label">Global Heads</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-box-number" id="globalTails">0</div>
+                    <div class="stat-box-label">Global Tails</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-box-number" id="globalWinRate">50%</div>
+                    <div class="stat-box-label">Win Rate</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-box-number" id="activePlayers">0</div>
+                    <div class="stat-box-label">Active Players</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-box-number" id="doomLevel">NEUTRAL</div>
+                    <div class="stat-box-label">Doom Level</div>
+                </div>
+            </div>
+
+            <button class="burst-button" onclick="refreshGlobalStats()" style="width: 100%; margin-top: 2rem;">
+                🔄 REFRESH STATS 🔄
+            </button>
+        </div>
+    </div>
+
     <!-- JavaScript for Interactions -->
     <script>
         // Coin flip logic
@@ -950,6 +1304,8 @@
         let headsCount = 0;
         let tailsCount = 0;
         let streakCount = 0;
+        let currentStreak = 0;
+        let previousResult = null;
 
         function createOnomatopoeia(text, x, y) {
             const boom = document.createElement('div');
@@ -987,16 +1343,28 @@
                     tailsCount++;
                 }
 
-                // Update streak
-                if (totalFlips > streakCount) {
-                    streakCount = totalFlips;
+                // Update streak - fixed logic
+                if (result === previousResult) {
+                    currentStreak++;
+                } else {
+                    currentStreak = 1;
+                    previousResult = result;
                 }
 
-                // Update DOM
-                document.getElementById('totalFlips').textContent = totalFlips;
-                document.getElementById('headsCount').textContent = headsCount;
-                document.getElementById('tailsCount').textContent = tailsCount;
-                document.getElementById('streakCount').textContent = streakCount;
+                if (currentStreak > streakCount) {
+                    streakCount = currentStreak;
+                }
+
+                // Update DOM with null checks
+                const totalFlipsEl = document.getElementById('totalFlips');
+                const headsCountEl = document.getElementById('headsCount');
+                const tailsCountEl = document.getElementById('tailsCount');
+                const streakCountEl = document.getElementById('streakCount');
+
+                if (totalFlipsEl) totalFlipsEl.textContent = totalFlips;
+                if (headsCountEl) headsCountEl.textContent = headsCount;
+                if (tailsCountEl) tailsCountEl.textContent = tailsCount;
+                if (streakCountEl) streakCountEl.textContent = streakCount;
 
                 // Create win/lose boom
                 createOnomatopoeia(result === 'HEADS' ? 'WIN!' : 'BOOM!',
@@ -1034,6 +1402,336 @@
                 el.style.setProperty('--glitch-offset', `${Math.random() * 4 - 2}px`);
             });
         }, 3000);
+
+        // ========================================
+        // MODAL MANAGEMENT
+        // ========================================
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) {
+                console.error(`Modal with id '${modalId}' not found`);
+                return;
+            }
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) {
+                console.error(`Modal with id '${modalId}' not found`);
+                return;
+            }
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Click outside modal to close
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay.id);
+                }
+            });
+        });
+
+        // Feature panel click handlers
+        document.getElementById('customChaosPanel').addEventListener('click', () => {
+            openModal('customChaosModal');
+        });
+
+        document.getElementById('seanceModePanel').addEventListener('click', () => {
+            openModal('seanceModeModal');
+        });
+
+        document.getElementById('doomBarometerPanel').addEventListener('click', () => {
+            openModal('doomBarometerModal');
+            refreshGlobalStats();
+        });
+
+        // ========================================
+        // CUSTOM CHAOS FUNCTIONALITY
+        // ========================================
+
+        function setCustomOptions(option1, option2) {
+            const option1El = document.getElementById('customOption1');
+            const option2El = document.getElementById('customOption2');
+
+            if (option1El) option1El.value = option1;
+            if (option2El) option2El.value = option2;
+        }
+
+        function flipCustomCoin() {
+            const option1El = document.getElementById('customOption1');
+            const option2El = document.getElementById('customOption2');
+
+            if (!option1El || !option2El) {
+                console.error('Custom options input fields not found');
+                return;
+            }
+
+            const option1 = option1El.value.trim();
+            const option2 = option2El.value.trim();
+
+            if (!option1 || !option2) {
+                alert('Please enter both options!');
+                return;
+            }
+
+            const result = Math.random() > 0.5 ? option1 : option2;
+            const resultDisplay = document.getElementById('customFlipResult');
+            const resultText = document.getElementById('customResultText');
+
+            if (!resultDisplay || !resultText) {
+                console.error('Result display elements not found');
+                return;
+            }
+
+            // Show result with animation
+            resultDisplay.style.display = 'block';
+            resultText.textContent = '...';
+
+            setTimeout(() => {
+                resultText.textContent = `🎉 ${result.toUpperCase()} WINS! 🎉`;
+                createOnomatopoeia('BOOM!', window.innerWidth / 2 - 50, window.innerHeight / 2);
+            }, 600);
+        }
+
+        // ========================================
+        // SÉANCE MODE FUNCTIONALITY
+        // ========================================
+
+        let currentRoom = null;
+        let participants = [];
+
+        function generateRoomCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        function createRoom() {
+            const userNameEl = document.getElementById('userName');
+            if (!userNameEl) {
+                console.error('Username input field not found');
+                return;
+            }
+
+            const userName = userNameEl.value.trim();
+            if (!userName) {
+                alert('Please enter your name!');
+                return;
+            }
+
+            currentRoom = generateRoomCode();
+            participants = [userName];
+
+            const roomCodeDisplayEl = document.getElementById('roomCodeDisplay');
+            const roomInfoEl = document.getElementById('roomInfo');
+
+            if (roomCodeDisplayEl) roomCodeDisplayEl.textContent = currentRoom;
+            if (roomInfoEl) roomInfoEl.style.display = 'block';
+            updateParticipantsList();
+
+            // Store room in localStorage for demo purposes
+            try {
+                localStorage.setItem('currentRoom', currentRoom);
+                localStorage.setItem('participants', JSON.stringify(participants));
+            } catch (error) {
+                console.error('Error saving room data to localStorage:', error);
+            }
+        }
+
+        function joinRoom() {
+            const userNameEl = document.getElementById('userName');
+            const roomCodeInputEl = document.getElementById('roomCodeInput');
+
+            if (!userNameEl || !roomCodeInputEl) {
+                console.error('Username or room code input field not found');
+                return;
+            }
+
+            const userName = userNameEl.value.trim();
+            const roomCode = roomCodeInputEl.value.trim();
+
+            if (!userName || !roomCode) {
+                alert('Please enter your name and room code!');
+                return;
+            }
+
+            // Check if room exists (for demo, just simulate)
+            const storedRoom = localStorage.getItem('currentRoom');
+            if (storedRoom === roomCode) {
+                currentRoom = roomCode;
+                try {
+                    const storedParticipants = JSON.parse(localStorage.getItem('participants') || '[]');
+                    if (!storedParticipants.includes(userName)) {
+                        storedParticipants.push(userName);
+                        localStorage.setItem('participants', JSON.stringify(storedParticipants));
+                    }
+                    participants = storedParticipants;
+                } catch (error) {
+                    console.error('Error parsing participants from localStorage:', error);
+                    participants = [userName];
+                }
+
+                const roomCodeDisplayEl = document.getElementById('roomCodeDisplay');
+                const roomInfoEl = document.getElementById('roomInfo');
+
+                if (roomCodeDisplayEl) roomCodeDisplayEl.textContent = currentRoom;
+                if (roomInfoEl) roomInfoEl.style.display = 'block';
+                updateParticipantsList();
+            } else {
+                alert('Room not found! Make sure you entered the correct code.');
+            }
+        }
+
+        function updateParticipantsList() {
+            const list = document.getElementById('participantsList');
+            if (!list) {
+                console.error('Participants list element not found');
+                return;
+            }
+
+            list.innerHTML = '';
+            participants.forEach(participant => {
+                const li = document.createElement('li');
+                li.className = 'participant-item';
+                li.textContent = `👤 ${participant}`;
+                list.appendChild(li);
+            });
+        }
+
+        function roomFlip() {
+            if (!currentRoom) {
+                alert('Please create or join a room first!');
+                return;
+            }
+
+            const result = Math.random() > 0.5 ? 'HEADS' : 'TAILS';
+            const resultDisplay = document.getElementById('roomFlipResult');
+            const resultText = document.getElementById('roomResultText');
+
+            if (!resultDisplay || !resultText) {
+                console.error('Room flip result display elements not found');
+                return;
+            }
+
+            resultDisplay.style.display = 'block';
+            resultText.textContent = '...';
+
+            setTimeout(() => {
+                resultText.textContent = `${result}!`;
+                createOnomatopoeia('FLIP!', window.innerWidth / 2 - 50, window.innerHeight / 2);
+            }, 600);
+        }
+
+        // ========================================
+        // DOOM BAROMETER FUNCTIONALITY
+        // ========================================
+
+        let globalStats = {
+            totalFlips: 0,
+            heads: 0,
+            tails: 0,
+            activePlayers: 0
+        };
+
+        function refreshGlobalStats() {
+            // Simulate global stats (in a real app, this would fetch from a backend)
+            // For demo, we'll use localStorage and add some random variations
+
+            const storedStats = localStorage.getItem('globalStats');
+            if (storedStats) {
+                try {
+                    globalStats = JSON.parse(storedStats);
+                } catch (error) {
+                    console.error('Error parsing global stats from localStorage:', error);
+                    // Reset to default if corrupted
+                    globalStats = {
+                        totalFlips: 15234,
+                        heads: 7812,
+                        tails: 7422,
+                        activePlayers: 342
+                    };
+                }
+            }
+
+            // Add some simulated activity - fixed calculation
+            const randomFlips = Math.floor(Math.random() * 50) + 10;
+            const newHeads = Math.floor(Math.random() * (randomFlips + 1)); // 0 to randomFlips
+            const newTails = randomFlips - newHeads;
+
+            globalStats.totalFlips += randomFlips;
+            globalStats.heads += newHeads;
+            globalStats.tails += newTails;
+            globalStats.activePlayers = Math.floor(Math.random() * 1000) + 100;
+
+            // Save to localStorage with error handling
+            try {
+                localStorage.setItem('globalStats', JSON.stringify(globalStats));
+            } catch (error) {
+                console.error('Error saving global stats to localStorage:', error);
+            }
+
+            // Update display with null checks
+            const globalTotalFlipsEl = document.getElementById('globalTotalFlips');
+            const globalHeadsEl = document.getElementById('globalHeads');
+            const globalTailsEl = document.getElementById('globalTails');
+            const globalWinRateEl = document.getElementById('globalWinRate');
+            const activePlayersEl = document.getElementById('activePlayers');
+            const doomLevelEl = document.getElementById('doomLevel');
+
+            if (globalTotalFlipsEl) globalTotalFlipsEl.textContent = globalStats.totalFlips.toLocaleString();
+            if (globalHeadsEl) globalHeadsEl.textContent = globalStats.heads.toLocaleString();
+            if (globalTailsEl) globalTailsEl.textContent = globalStats.tails.toLocaleString();
+
+            const winRate = globalStats.totalFlips > 0
+                ? ((globalStats.heads / globalStats.totalFlips) * 100).toFixed(1)
+                : 50;
+            if (globalWinRateEl) globalWinRateEl.textContent = `${winRate}%`;
+
+            if (activePlayersEl) activePlayersEl.textContent = globalStats.activePlayers.toLocaleString();
+
+            // Calculate doom level
+            let doomLevel = 'NEUTRAL';
+            if (winRate > 55) {
+                doomLevel = 'BLESSED';
+            } else if (winRate < 45) {
+                doomLevel = 'DOOMED';
+            }
+
+            if (doomLevelEl) {
+                doomLevelEl.textContent = doomLevel;
+                doomLevelEl.style.color = doomLevel === 'BLESSED' ? 'var(--neon-green)' :
+                                           doomLevel === 'DOOMED' ? 'var(--red-web)' :
+                                           'var(--yellow-flash)';
+            }
+        }
+
+        // Initialize global stats on page load
+        if (!localStorage.getItem('globalStats')) {
+            globalStats = {
+                totalFlips: 15234,
+                heads: 7812,
+                tails: 7422,
+                activePlayers: 342
+            };
+            localStorage.setItem('globalStats', JSON.stringify(globalStats));
+        }
+
+        // Escape key to close modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
     </script>
 </body>
 </html>
