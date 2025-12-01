@@ -3,55 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://coinoffate.live/</loc>
-        <lastmod>2025-10-23</lastmod>
+        <lastmod>2024-12-01</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://coinoffate.live/public/icon-512.png</image:loc>
-            <image:title>Haunted Halloween Coin of Fate</image:title>
-            <image:caption>Spooky Halloween fortune teller - Flip the cursed coin</image:caption>
+            <image:loc>https://coinoffate.live/icon-512.png</image:loc>
+            <image:title>Coin of Fate - Crypto Gaming Multiverse</image:title>
+            <image:caption>Flip your fate in the gaming multiverse - Every flip is a new reality</image:caption>
         </image:image>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/pages/about/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/pages/how-it-works/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/pages/guide/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/pages/faq/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/blog/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/legal/privacy-policy/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://coinoffate.live/legal/terms-of-service/</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
     </url>
 </urlset>

@@ -16,12 +16,7 @@ Disallow: /vendor/
 Disallow: /_profiler/
 Disallow: /admin/
 Disallow: /phpmyadmin/
+Disallow: /node_modules/
 
-# Allow search engines to index all content
-Allow: /pages/
-Allow: /blog/
-Allow: /tools/
+# Allow search engines to index all public content
 Allow: /public/
-
-# Halloween-specific indexing hints
-# Primary keywords: halloween coin flip, haunted coin toss, spooky fortune teller, halloween game
