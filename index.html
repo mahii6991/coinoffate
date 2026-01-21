@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>COIN OF FATE ⚡ Crypto Gaming Multiverse | Flip Your Destiny</title>
     <meta name="title" content="COIN OF FATE ⚡ Crypto Gaming Multiverse | Flip Your Destiny">
-    <meta name="description" content="Enter the gaming multiverse! Flip coins, chase wins, and dive into dimension-hopping crypto chaos. Every flip is a new reality!">
+    <meta name="description" content="Free online coin flip game! Enter the gaming multiverse, flip coins, chase wins, and dive into dimension-hopping crypto chaos. Every flip is a new reality!">
     <meta name="keywords" content="coin flip, crypto gaming, multiverse, fortune teller, decision maker, coin toss game, online coin flip, fate flipper, custom coin flip, multiplayer coin flip, gaming multiverse, crypto fate">
     <meta name="author" content="Coin of Fate">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -1182,7 +1182,7 @@
         <h2 class="section-title">MULTIVERSE FEATURES</h2>
 
         <div class="panels-grid">
-            <div class="feature-panel comic-panel" id="customChaosPanel" style="cursor: pointer;">
+            <div class="feature-panel comic-panel" id="customChaosPanel" role="button" tabindex="0" style="cursor: pointer;" aria-label="Open Custom Chaos - create custom coin flip options">
                 <div class="feature-icon" aria-hidden="true">🧪</div>
                 <h3 class="feature-title">CUSTOM CHAOS</h3>
                 <p class="feature-text">
@@ -1191,7 +1191,7 @@
                 </p>
             </div>
 
-            <div class="feature-panel comic-panel" id="seanceModePanel" style="cursor: pointer;">
+            <div class="feature-panel comic-panel" id="seanceModePanel" role="button" tabindex="0" style="cursor: pointer;" aria-label="Open Séance Mode - multiplayer coin flip rooms">
                 <div class="feature-icon" aria-hidden="true">🔮</div>
                 <h3 class="feature-title">SÉANCE MODE</h3>
                 <p class="feature-text">
@@ -1200,7 +1200,7 @@
                 </p>
             </div>
 
-            <div class="feature-panel comic-panel" id="doomBarometerPanel" style="cursor: pointer;">
+            <div class="feature-panel comic-panel" id="doomBarometerPanel" role="button" tabindex="0" style="cursor: pointer;" aria-label="Open Doom Barometer - view global statistics">
                 <div class="feature-icon" aria-hidden="true">📉</div>
                 <h3 class="feature-title">DOOM BAROMETER</h3>
                 <p class="feature-text">
@@ -1250,7 +1250,7 @@
                 every win is yours to keep, and every loss... well, there's always another dimension!
             </p>
 
-            <button class="burst-button" aria-label="Connect your wallet">
+            <button class="burst-button" id="connectWalletBtn" aria-label="Connect your wallet">
                 🔌 CONNECT WALLET 🔌
             </button>
         </div>
@@ -1259,7 +1259,7 @@
     <!-- Modal: Custom Chaos -->
     <div id="customChaosModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('customChaosModal')">×</button>
+            <button class="modal-close" onclick="closeModal('customChaosModal')" aria-label="Close modal">×</button>
             <h2 class="modal-title">🧪 CUSTOM CHAOS</h2>
 
             <div class="input-group">
@@ -1299,7 +1299,7 @@
     <!-- Modal: Seance Mode -->
     <div id="seanceModeModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('seanceModeModal')">×</button>
+            <button class="modal-close" onclick="closeModal('seanceModeModal')" aria-label="Close modal">×</button>
             <h2 class="modal-title">🔮 SÉANCE MODE</h2>
 
             <p class="feature-text mb-2">Create a room and invite your friends to flip together!</p>
@@ -1346,7 +1346,7 @@
     <!-- Modal: Doom Barometer -->
     <div id="doomBarometerModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('doomBarometerModal')">×</button>
+            <button class="modal-close" onclick="closeModal('doomBarometerModal')" aria-label="Close modal">×</button>
             <h2 class="modal-title">📉 DOOM BAROMETER</h2>
 
             <p class="feature-text mb-2 text-center">
@@ -1393,6 +1393,7 @@
 
     <!-- JavaScript for Interactions -->
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
         // Coin flip logic
         const coin = document.getElementById('mainCoin');
         const flipButton = document.getElementById('flipButton');
@@ -1444,8 +1445,8 @@
                     currentStreak++;
                 } else {
                     currentStreak = 1;
-                    previousResult = result;
                 }
+                previousResult = result;
 
                 if (currentStreak > streakCount) {
                     streakCount = currentStreak;
@@ -1479,25 +1480,46 @@
             }
         });
 
-        // Parallax glitch effect on scroll
+        // Parallax glitch effect on scroll (throttled with requestAnimationFrame)
+        let scrollTicking = false;
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const panels = document.querySelectorAll('.comic-panel');
+            if (!scrollTicking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const panels = document.querySelectorAll('.comic-panel');
 
-            panels.forEach((panel, index) => {
-                const speed = (index + 1) * 0.5;
-                const offset = scrolled * speed * 0.01;
-                panel.style.transform = `translateY(${offset}px) rotate(${Math.sin(scrolled * 0.01) * 2}deg)`;
-            });
+                    panels.forEach((panel, index) => {
+                        const speed = (index + 1) * 0.5;
+                        const offset = scrolled * speed * 0.01;
+                        panel.style.transform = `translateY(${offset}px) rotate(${Math.sin(scrolled * 0.01) * 2}deg)`;
+                    });
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
         });
 
-        // Random glitch effects
-        setInterval(() => {
+        // Random glitch effects (pauses when tab is hidden)
+        let glitchIntervalId = setInterval(() => {
             const glitchElements = document.querySelectorAll('.glitch-text');
             glitchElements.forEach(el => {
                 el.style.setProperty('--glitch-offset', `${Math.random() * 4 - 2}px`);
             });
         }, 3000);
+
+        // Pause glitch effect when tab is hidden to save resources
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(glitchIntervalId);
+            } else {
+                glitchIntervalId = setInterval(() => {
+                    const glitchElements = document.querySelectorAll('.glitch-text');
+                    glitchElements.forEach(el => {
+                        el.style.setProperty('--glitch-offset', `${Math.random() * 4 - 2}px`);
+                    });
+                }, 3000);
+            }
+        });
 
         // ========================================
         // MODAL MANAGEMENT
@@ -1546,6 +1568,27 @@
             refreshGlobalStats();
         });
 
+        // Keyboard accessibility for feature panels
+        ['customChaosPanel', 'seanceModePanel', 'doomBarometerPanel'].forEach(panelId => {
+            const panel = document.getElementById(panelId);
+            if (panel) {
+                panel.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        panel.click();
+                    }
+                });
+            }
+        });
+
+        // Connect Wallet button handler - Coming Soon
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        if (connectWalletBtn) {
+            connectWalletBtn.addEventListener('click', () => {
+                alert('Coming Soon! Wallet integration is under development. Stay tuned for updates!');
+            });
+        }
+
         // ========================================
         // CUSTOM CHAOS FUNCTIONALITY
         // ========================================
@@ -1572,6 +1615,12 @@
 
             if (!option1 || !option2) {
                 alert('Please enter both options!');
+                return;
+            }
+
+            // Prevent identical options
+            if (option1.toLowerCase() === option2.toLowerCase()) {
+                alert('Options must be different! Enter two unique choices.');
                 return;
             }
 
@@ -1828,6 +1877,7 @@
                 });
             }
         });
+    }); // End DOMContentLoaded
     </script>
 </body>
 </html>

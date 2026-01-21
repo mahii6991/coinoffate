@@ -1,11 +1,11 @@
 {
-  "name": "🎄 Magical Coin of Fate - Christmas Fortune Teller",
-  "short_name": "Magical Coin",
-  "description": "🎅 Dare to flip the magical Christmas coin? Experience festive fortune-telling with enchanted animations, joyful sounds, and mystical predictions. Perfect for Christmas fun!",
+  "name": "COIN OF FATE - Crypto Gaming Multiverse",
+  "short_name": "Coin of Fate",
+  "description": "Enter the gaming multiverse! Flip coins, chase wins, and dive into dimension-hopping crypto chaos. Every flip is a new reality!",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#C41E3A",
+  "background_color": "#000000",
+  "theme_color": "#ff006e",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-US",
@@ -35,14 +35,14 @@
       "src": "/public/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "label": "Magical Coin of Fate - Christmas Fortune Teller"
+      "label": "Coin of Fate - Crypto Gaming Multiverse"
     }
   ],
   "shortcuts": [
     {
-      "name": "Discover Fate",
+      "name": "Flip Your Fate",
       "short_name": "Flip",
-      "description": "Flip the magical Christmas coin",
+      "description": "Flip the coin and enter the multiverse",
       "url": "/",
       "icons": [
         {
