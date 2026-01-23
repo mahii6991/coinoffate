@@ -1,7 +1,7 @@
 {
-  "name": "COIN OF FATE - Crypto Gaming Multiverse",
+  "name": "Coin of Fate ⚡ Ultimate Crypto Decision Maker",
   "short_name": "Coin of Fate",
-  "description": "Enter the gaming multiverse! Flip coins, chase wins, and dive into dimension-hopping crypto chaos. Every flip is a new reality!",
+  "description": "Flip your destiny! Join multiplayer rooms, create custom coin flips, and track global stats. The multiverse awaits.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -12,19 +12,19 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/public/icon-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/public/icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/public/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
@@ -32,10 +32,10 @@
   "categories": ["games", "entertainment", "lifestyle"],
   "screenshots": [
     {
-      "src": "/public/icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "label": "Coin of Fate - Crypto Gaming Multiverse"
+      "label": "Coin of Fate - Multiplayer Coin Flip Game"
     }
   ],
   "shortcuts": [
@@ -46,7 +46,7 @@
       "url": "/",
       "icons": [
         {
-          "src": "/public/icon-192.png",
+          "src": "/icon-192.png",
           "sizes": "192x192"
         }
       ]
