@@ -333,8 +333,8 @@
         animation: coinFloat 4s ease-in-out infinite;
     }
     @keyframes coinFloat {
-        0%, 100% { transform: translateY(0) rotateY(0deg); }
-        50% { transform: translateY(-12px) rotateY(5deg); }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
     }
     .coin-face {
         position: absolute;
@@ -360,7 +360,7 @@
         transform: rotateY(180deg);
         box-shadow: inset 0 0 40px rgba(34,211,238,0.3), var(--glow-cyan);
     }
-    .coin-3d.flipping { animation: coinFlip3d 0.8s ease-in-out; }
+    .coin-3d.flipping { animation: none !important; }
     .coin-3d.show-tails { transform: rotateY(180deg); }
     @keyframes coinFlip3d {
         0% { transform: rotateY(0deg) scale(1); }
@@ -2139,12 +2139,13 @@ function flipCoin() {
 
     setTimeout(() => {
         coin3d.classList.remove('flipping');
-        coin3d.style.animation = '';
         if (result === 'TAILS') {
             coin3d.classList.add('show-tails');
         } else {
             coin3d.classList.remove('show-tails');
         }
+        // Restore float animation without overriding the transform
+        coin3d.style.animation = 'coinFloat 4s ease-in-out infinite';
         totalFlips++;
         if (result === 'HEADS') heads++; else tails++;
         if (result === prevResult) curStreak++; else curStreak = 1;
